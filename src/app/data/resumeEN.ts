@@ -40,12 +40,6 @@ export interface Certification {
 }
 
 // Import icons
-import stoneIcon from '@/assets/icon_expe_stone.png';
-import amoooraIcon from '@/assets/icon_expe_amooora.jpg';
-import scholarIcon from '@/assets/icon_expe_scholar_launch.png';
-import fhiIcon from '@/assets/icon_expe_fhi.png';
-import stanfordIcon from '@/assets/icon_expe_stanford.png';
-import movvaIcon from '@/assets/icon_expe_movva.jpeg';
 import fgvIcon from '@/assets/icon_educ_fgv.jpeg';
 import ufmgIcon from '@/assets/icon_educ_ufmg.jpeg';
 import stanfordEduIcon from '@/assets/icon_educ_stanford.png';
@@ -60,72 +54,68 @@ import aiCreativeBuildersIcon from '@/assets/icon_cert_ai_creative_builders.png'
 
 export const experiencesEN: Experience[] = [
   {
-    role: "Data Scientist | Causal Inference Specialist",
-    company: "Stone",
-    period: "09/2025 - Present",
-    location: "Remote",
-    logo: stoneIcon,
-    description: [
-      "Applying <strong>causal inference, econometrics, and data science</strong> as part of Stone's <strong>Economic Research team</strong> to evaluate the impact of strategic initiatives across marketing, credit, pricing, retention, product development, and banking.",
-      "Using <strong>SQL for large-scale data analysis</strong> and <strong>Python and R</strong> for <strong>statistical modeling and experimentation</strong> to support evidence-based business decisions."
-    ]
-  },
-  {
-    role: "Founder & CEO",
-    company: "Amooora",
-    period: "12/2023 - Present",
+    role: "Global Head Sr. CoE — Center of Excellence (Product & Design)",
+    company: "AB InBev",
+    period: "Nov 2023 – Mar 2026",
     location: "São Paulo, Brazil",
-    logo: amoooraIcon,
     description: [
-      "Developing a <strong>data-driven platform</strong> fostering connection, advocacy, and information-sharing in a safe and inclusive space",
-      "Applying <strong>machine learning and predictive analytics</strong> to personalize content, improve retention, and drive community engagement"
+      "Led the creation and leadership of the <strong>Product & Design Center of Excellence</strong> for the Zé Delivery and TaDa brands—an organizational structure that centralizes knowledge, governance, and scalable practices for the entire DTC organization. The CoE acted as a strategic enabler with direct impact on consumer experience quality and team operational maturity.",
+      "Architected the CoE operating model with <strong>3 strategic pillars</strong> — Consumer Centricity, Quality Experience, and Maturity & Ops — and <strong>6 operational workstreams</strong>: Program & Portfolio, Product Insights, Service Design Cross, Content Experience, Design System & Illustration, and Experience Cross.",
+      "Implemented a proprietary <strong>Maturity Framework</strong> that raised Product maturity from 2.70 (2023) to 4.11 (2025) and Design from 2.40 to 4.10 — a two-level improvement over two years, focused on four pillars: Foundation, People, Platform, and Practices.",
+      "Created a cross-functional <strong>Ways of Working (WoW)</strong> model with automated upstream workflows in Jira: standardized discovery tasks with a GPT Assistant, enabling 8 simultaneous tasks in under 2 minutes and unlocking real productivity and quality metrics.",
+      "Deployed the <strong>Experience 10 Stars</strong> framework with four integrated quality tracks — AI Quality Assistant, Design Critique, Quality Gates, and Experience Quality Review — covering ideation through handoff with defined criteria and scores.",
+      "Led <strong>Design System</strong> governance, driving a 249% increase in component usage in interfaces, 27 components ready in design, and +29 coded in production for Seller and TaDa; implemented an AI-powered adoption dashboard for continuous measurement.",
+      "Built the <strong>Content IA HUB</strong> — an AI platform that empowers Product, CRM, and agencies to review content with brand voice; 147 flows analyzed at the Content Gate with 94% adjusted and consistent.",
+      "Created <strong>10 custom GPTs</strong> for the team covering: Product & Design Assistant, Research (Questionnaire Reviewer, Sample Size Calculator, Objective Definition, Methodology Consultant), Quarter Papers, Initiative, Decision Document, and Meeting Genie.",
+      "Structured a <strong>Consumer Centricity</strong> platform centralizing 25+ strategic studies on the Zé Platform Research & Insights.",
+      "Developed the <strong>DTC Health Check</strong> — an intelligent AI platform that turns raw data from monthly organizational health surveys into interactive dashboards and leadership insights.",
+      "<strong>Stack & methods:</strong> Figma · Notion · Jira · OKRs · Design Ops · Product Ops · Design System · Ways of Working · Experience Quality Review · Maturity Framework · GPT/AI · Stakeholder Management · Data Studio"
     ]
   },
   {
-    role: "Academic Mentor (Data Science Research Projects)",
-    company: "Scholar Launch",
-    period: "01/2024 - Present",
-    location: "Remote",
-    logo: scholarIcon,
-    description: [
-      "Supervising and mentoring <strong>student-led research projects</strong> applying <strong>statistics, machine learning, and AI</strong> to <strong>real-world problems</strong>, from proposal to publication."
-    ]
-  },
-  {
-    role: "Senior Research Associate",
-    company: "FHI 360",
-    period: "05/2018 - 08/2023",
-    location: "Washington, DC",
-    logo: fhiIcon,
-    description: [
-      "<strong>Led evaluations</strong> of education programs across <strong>10+ countries</strong> (including Brazil, Ghana, Malawi, Guatemala, and El Salvador) using <strong>A/B testing, machine learning,</strong> and <strong>quasi-experimental methods</strong>",
-      "Designed <strong>predictive models</strong> and assisted in 4 <strong>psychometric tools</strong> (factor analysis, PCA, clustering) to assess youth soft skills, teacher well-being, and policy impact",
-      "Managed <strong>large-scale datasets</strong> (50,000+ students) to generate <strong>actionable policy insights</strong>",
-      "Created <strong>interactive dashboards and visualizations</strong> for governments and international partners"
-    ]
-  },
-  {
-    role: "Senior Researcher",
-    company: "Stanford University",
-    period: "01/2013 - 04/2018",
-    location: "Stanford, CA",
-    logo: stanfordIcon,
-    description: [
-      "Led <strong>randomized controlled trials</strong> with 25,000+ students, applying <strong>causal inference, machine learning</strong> and <strong>A/B testing</strong> to evaluate program effectiveness",
-      "Used <strong>regression and predictive modeling</strong> to identify interventions that improved attendance, test scores, and promotion rates",
-      "<strong>Published peer-reviewed research</strong> and conducted classroom observation studies to inform policy and improve teacher effectiveness",
-      "Co-led a seminar on Brazilian education and assisted in a flipped-classroom <strong>statistics course, mentoring</strong> Master's students on applied research methods"
-    ]
-  },
-  {
-    role: "Consultant",
-    company: "Movva",
-    period: "02/2015 - 12/2016",
+    role: "Sr. Design Ops & System Manager",
+    company: "Unico IDtech",
+    period: "Feb 2022 – Nov 2023",
     location: "São Paulo, Brazil",
-    logo: movvaIcon,
     description: [
-      "Designed and led <strong>large-scale education research</strong> in 400 public schools (30,000 students), including questionnaire development, government negotiations, field supervision, and data quality assurance",
-      "Conducted <strong>impact evaluations</strong> and communicated findings through <strong>data visualizations</strong> for policymakers and public sector stakeholders"
+      "Built Unico's <strong>Design Ops</strong> function from scratch, structuring cross-design workstreams that improved team consistency and efficiency. Led the rollout of Accessibility, Content Design, Service Design, Research Ops, and Design System at one of Brazil's largest identity-tech companies.",
+      "Structured the cross-product team and defined a Design Ops strategy aligned with business impact.",
+      "Led Design System implementation and evolution, building an adoption culture and ensuring scalability.",
+      "Created dashboards to measure design impact on the product, making the practice <strong>data-informed</strong>.",
+      "Drove quarterly and annual strategic planning, connecting the design vision with company goals.",
+      "Implemented <strong>Accessibility (WCAG)</strong> practices and <strong>LGPD</strong> compliance across digital products.",
+      "<strong>Stack & methods:</strong> Figma · Data Studio · Notion · Design System · Research Ops · Accessibility (WCAG) · LGPD"
+    ]
+  },
+  {
+    role: "Design Ops & System Lead",
+    company: "RD (Raia Drogasil)",
+    period: "Jan 2021 – Feb 2022",
+    location: "São Paulo, Brazil",
+    description: [
+      "Pioneered the <strong>Design Ops</strong> function at RD, structuring the team and consolidating core disciplines to raise design maturity at one of Latin America's largest pharmacy retail networks.",
+      "Structured and led the Design Ops team with a strategic, cross-functional mandate.",
+      "Led the <strong>Design System</strong> squad, defining the evolution strategy and adoption culture.",
+      "Created standards for rituals and documentation, strengthening design maturity.",
+      "Reduced inconsistencies between product and design teams through cross-functional initiatives.",
+      "<strong>Stack & methods:</strong> Figma · Design System · Service Design · Research Ops · Accessibility · LGPD"
+    ]
+  },
+  {
+    role: "CoE | Design Ops Lead & PM | Lead Design System",
+    company: "Natura",
+    period: "Jan 2015 – Dec 2020",
+    location: "São Paulo, Brazil (6 years)",
+    description: [
+      "A consistent growth path from <strong>Designer</strong> specializing in heuristic analysis to <strong>Design Ops</strong> leadership and <strong>Design System</strong> management at Latin America's largest cosmetics company.",
+      "<strong>Design Ops Lead & PM | Lead Design System (2018 – 2020)</strong>",
+      "Coordinated Design Ops activities and acted as PO for the Design System squad.",
+      "Participated in strategic area definitions, connecting design and product.",
+      "Consolidated governance and continuous evolution of the Design System as an internal reference.",
+      "<strong>Designer — Heuristic Analysis (2015 – 2018)</strong>",
+      "Responsible for heuristic analysis of digital channels and design team planning.",
+      "Managed design projects with agencies and the marketing team.",
+      "Supported digital campaign strategies and product launches."
     ]
   }
 ];

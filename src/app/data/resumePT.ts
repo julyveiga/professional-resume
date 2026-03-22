@@ -40,12 +40,6 @@ export interface Certification {
 }
 
 // Import icons
-import stoneIcon from '@/assets/icon_expe_stone.png';
-import amoooraIcon from '@/assets/icon_expe_amooora.jpg';
-import scholarIcon from '@/assets/icon_expe_scholar_launch.png';
-import fhiIcon from '@/assets/icon_expe_fhi.png';
-import stanfordIcon from '@/assets/icon_expe_stanford.png';
-import movvaIcon from '@/assets/icon_expe_movva.jpeg';
 import fgvIcon from '@/assets/icon_educ_fgv.jpeg';
 import ufmgIcon from '@/assets/icon_educ_ufmg.jpeg';
 import stanfordEduIcon from '@/assets/icon_educ_stanford.png';
@@ -60,65 +54,68 @@ import aiCreativeBuildersIcon from '@/assets/icon_cert_ai_creative_builders.png'
 
 export const experiencesPT: Experience[] = [
   {
-    role: "Cientista de Dados | Especialista em Inferência Causal",
-    company: "Stone",
-    period: "09/2025 - Presente",
-    location: "Remoto",
-    logo: stoneIcon,
-    description: [
-      "Aplicação de <strong>inferência causal</strong>, <strong>econometria</strong> e <strong>ciência de dados</strong> no time de <strong>Economic Research</strong> da Stone para avaliar o impacto de iniciativas estratégicas em marketing, crédito, precificação, retenção, desenvolvimento de produtos e serviços bancários."
-    ]
-  },
-  {
-    role: "Fundadora & CEO",
-    company: "Amooora",
-    period: "12/2023 - Presente",
+    role: "Global Head Sr. CoE — Center of Excellence (Product & Design)",
+    company: "AB InBev",
+    period: "nov 2023 – mar 2026",
     location: "São Paulo, Brasil",
-    logo: amoooraIcon,
     description: [
-      "Desenvolvimento de <strong>plataforma baseada em dados</strong> para promover conexão, advocacy e compartilhamento de informações em espaço seguro e inclusivo, com aplicação de <em>machine learning</em> para personalização de conteúdo e engajamento inicial."
+      "Responsável pela criação e liderança do <strong>Center of Excellence de Produto & Design</strong> das marcas Zé Delivery e TaDa, estrutura organizacional que concentra conhecimento, governança e práticas escaláveis para toda a diretoria DTC. O CoE atuou como habilitador estratégico com impacto direto na qualidade da experiência do consumidor e na maturidade operacional dos times.",
+      "Arquitetou o modelo funcional do CoE com <strong>3 pilares estratégicos</strong> — Consumer Centricity, Quality Experience e Maturity & Ops — e <strong>6 frentes operacionais</strong>: Program & Portfolio, Product Insights, Service Design Cross, Content Experience, Design System & Illustration e Experience Cross.",
+      "Implementou <strong>Maturity Framework</strong> próprio que elevou o índice de maturidade de Produto de 2,70 (2023) para 4,11 (2025) e de Design de 2,40 para 4,10 — evolução de 2 níveis em 2 anos, com foco em 4 pilares: Foundation, Pessoas, Plataforma e Práticas.",
+      "Criou o modelo de <strong>Ways of Working (WoW)</strong> cross-áreas com Upstream Automatizado no Jira: padronização de tasks de discovery com GPT Assistant, permitindo criar 8 tasks simultâneas em menos de 2 minutos e viabilizando métricas reais de produtividade e qualidade.",
+      "Implantou o framework <strong>Experience 10 Stars</strong> com 4 esteiras de qualidade integradas — AI Quality Assistant, Design Critique, Quality Gates e Experience Quality Review — cobrindo da ideação ao handoff com critérios e scores definidos.",
+      "Liderou a governança do <strong>Design System</strong> resultando em 249% de aumento na inserção de componentes nas interfaces, 27 componentes prontos em design e +29 codados em produção no Seller e TaDa; implementou dashboard de adoção com IA para mensuração contínua.",
+      "Construiu o <strong>Content IA HUB</strong> — plataforma com IA que dá autonomia a Produto, CRM e Agências para revisão de conteúdo com tom de voz da marca; resultou em 147 fluxos analisados no Gate de Content com 94% ajustados e consistentes.",
+      "Criou <strong>10 GPTs customizados</strong> para o time cobrindo: Product & Design Assistant, Research (Revisor de Questionários, Calculadora de Amostra, Definição de Objetivo, Consultor de Metodologia), Papers de Quarter, Iniciativa, Documento para Decisão e Meeting Genie.",
+      "Estruturou plataforma de <strong>Consumer Centricity</strong> centralizando +25 pesquisas estratégicas na Zé Platform Research & Insights.",
+      "Desenvolveu o <strong>DTC Health Check</strong> — plataforma inteligente com IA que converte dados brutos de pesquisas mensais de saúde organizacional em dashboards interativos e insights para a liderança.",
+      "<strong>Stack & métodos:</strong> Figma · Notion · Jira · OKRs · Design Ops · Product Ops · Design System · Ways of Working · Experience Quality Review · Maturity Framework · GPT/IA · Stakeholder Management · Data Studio"
     ]
   },
   {
-    role: "Mentora de Pesquisa em Ciência de Dados",
-    company: "Scholar Launch",
-    period: "01/2024 - Presente",
-    location: "Remoto",
-    logo: scholarIcon,
-    description: [
-      "Supervisão e mentoria de <strong>projetos de pesquisa conduzidos por estudantes</strong>, aplicando estatística, machine learning e IA a desafios práticos, do planejamento da pesquisa à publicação."
-    ]
-  },
-  {
-    role: "Pesquisadora Sênior",
-    company: "FHI 360",
-    period: "05/2018 - 08/2023",
-    location: "Washington, DC",
-    logo: fhiIcon,
-    description: [
-      "Liderança de <strong>avaliações de programas educacionais</strong> em mais de 10 países (incluindo Brasil, Gana, Guatemala e El Salvador), utilizando <strong>testes A/B</strong>, <strong>machine learning</strong> e <strong>métodos quase-experimentais</strong> para avaliar o impacto de políticas públicas.",
-      "Desenvolvimento de <strong>modelos preditivos e ferramentas psicométricas</strong> (análise fatorial, PCA) e gestão de <strong>bases de dados em larga escala</strong> (mais de 50.000 estudantes) para gerar insights aplicáveis a políticas públicas e criar <strong>dashboards interativos</strong> para governos e parceiros internacionais."
-    ]
-  },
-  {
-    role: "Pesquisadora Sênior",
-    company: "Universidade Stanford",
-    period: "01/2013 - 04/2018",
-    location: "Stanford, CA",
-    logo: stanfordIcon,
-    description: [
-      "Condução de <strong>experimentos aleatórios</strong> com mais de 25.000 estudantes, aplicando <strong>inferência causal</strong>, <strong>machine learning</strong> e <strong>testes A/B</strong>, além de regressão e modelagem preditiva, para avaliar a efetividade de programas educacionais e identificar intervenções que melhoraram frequência, desempenho e aprovação escolar.",
-      "Publicação de <strong>artigos acadêmicos</strong> e realização de estudos observacionais em sala de aula para informar políticas públicas e aprimorar práticas docentes, com <strong>co-liderança de seminário sobre educação brasileira</strong> e mentoria de alunos de mestrado em métodos de estatística e pesquisa aplicada."
-    ]
-  },
-  {
-    role: "Consultora",
-    company: "Movva",
-    period: "02/2015 - 12/2016",
+    role: "Design Ops & System Manager Sr.",
+    company: "Unico IDtech",
+    period: "fev 2022 – nov 2023",
     location: "São Paulo, Brasil",
-    logo: movvaIcon,
     description: [
-      "Concepção e liderança de <strong>pesquisas educacionais em larga escala</strong> em 400 escolas públicas (30.000 alunos), incluindo desenvolvimento de questionários, negociação com governos, supervisão de campo e garantia da qualidade dos dados, com realização de <strong>avaliações de impacto</strong> e comunicação de resultados por meio de <strong>visualizações de dados</strong> para gestores e stakeholders do setor público."
+      "Construiu do zero a área de <strong>Design Ops</strong> da Unico, estruturando frentes cross-design que ampliaram a consistência e eficiência do time. Liderou a implementação das disciplinas de Acessibilidade, Content Design, Service Design, Research Ops e Design System em uma das maiores identech do Brasil.",
+      "Estruturou o time cross-produtos e definiu estratégia de Design Ops alinhada ao impacto no negócio.",
+      "Liderou a implementação e evolução do <strong>Design System</strong>, criando cultura de adoção e garantindo escalabilidade.",
+      "Criou dashboards para mensuração de impacto de design em produto, tornando a área <strong>data-informed</strong>.",
+      "Conduziu planejamento estratégico trimestral e anual, conectando visão de design com metas da companhia.",
+      "Implantou práticas de <strong>Acessibilidade (WCAG)</strong> e adequação à <strong>LGPD</strong> nos produtos digitais.",
+      "<strong>Stack & métodos:</strong> Figma · Data Studio · Notion · Design System · Research Ops · Acessibilidade (WCAG) · LGPD"
+    ]
+  },
+  {
+    role: "Design Ops & System Lead",
+    company: "RD (Raia Drogasil)",
+    period: "jan 2021 – fev 2022",
+    location: "São Paulo, Brasil",
+    description: [
+      "Pioneira na criação da área de <strong>Design Ops</strong> na RD, estruturando o time e consolidando disciplinas fundamentais para elevar a maturidade de design em uma das maiores redes de varejo farmacêutico da América Latina.",
+      "Estruturou e liderou o time de Design Ops com visão estratégica e impacto transversal.",
+      "Liderou a Squad de <strong>Design System</strong>, estabelecendo estratégia de evolução e cultura de adoção.",
+      "Criou padrões para rituais e documentações, fortalecendo a maturidade da área de design.",
+      "Reduziu inconsistências entre times de produto e design com iniciativas cross-funcionais.",
+      "<strong>Stack & métodos:</strong> Figma · Design System · Service Design · Research Ops · Acessibilidade · LGPD"
+    ]
+  },
+  {
+    role: "CoE | Design Ops Lead & PM | Lead Design System",
+    company: "Natura",
+    period: "jan 2015 – dez 2020",
+    location: "São Paulo, Brasil (6 anos)",
+    description: [
+      "Trajetória de crescimento consistente, de <strong>Designer</strong> especialista em Análise Heurística até liderança do <strong>Design Ops</strong> e gestão do <strong>Design System</strong> da maior empresa de cosméticos da América Latina.",
+      "<strong>Design Ops Lead & PM | Lead Design System (2018 – 2020)</strong>",
+      "Coordenou as atividades de Design Ops e atuou como PO da Squad de Design System.",
+      "Participou das definições estratégicas das áreas, conectando design e produto.",
+      "Consolidou governança e evolução contínua do Design System como referência interna.",
+      "<strong>Designer — Análise Heurística (2015 – 2018)</strong>",
+      "Responsável pela análise heurística dos canais digitais e planejamento do time de design.",
+      "Gerenciou projetos de design com agências e time de marketing.",
+      "Apoiou estratégias de campanhas digitais e lançamentos de produtos."
     ]
   }
 ];
