@@ -34,8 +34,8 @@ function App() {
     // Change document title based on language for PDF filename
     const originalTitle = document.title;
     document.title = language === 'pt' 
-      ? 'Nina_Menezes_Cunha_Resume_PT' 
-      : 'Nina_Menezes_Cunha_Resume_EN';
+      ? 'Juliana_Veiga_Resume_PT' 
+      : 'Juliana_Veiga_Resume_EN';
     
     // Use native browser print functionality
     // Users can save as PDF from the print dialog (Ctrl+P or Cmd+P)

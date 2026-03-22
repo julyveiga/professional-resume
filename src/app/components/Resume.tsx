@@ -87,6 +87,16 @@ interface ResumeProps {
   onLanguageToggle: () => void;
 }
 
+function linkedinProfileSlug(linkedinUrl: string): string {
+  try {
+    const path = new URL(linkedinUrl).pathname.replace(/\/$/, '');
+    const segments = path.split('/').filter(Boolean);
+    return segments[segments.length - 1] ?? '';
+  } catch {
+    return '';
+  }
+}
+
 const Resume = React.forwardRef<HTMLDivElement, ResumeProps>(({
   experiences,
   education,
@@ -142,7 +152,7 @@ const Resume = React.forwardRef<HTMLDivElement, ResumeProps>(({
             </a>
             <a href={header.linkedin} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:text-red-700 transition-colors">
               <div className="bg-orange-100 p-0.5 rounded-full"><Linkedin className="w-2.5 h-2.5 text-orange-600" /></div>
-              <span>nina-menezes-cunha</span>
+              <span>{linkedinProfileSlug(header.linkedin)}</span>
             </a>
             <a href={header.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:text-red-700 transition-colors">
               <div className="bg-orange-100 p-0.5 rounded-full"><Github className="w-2.5 h-2.5 text-orange-600" /></div>

@@ -1,7 +1,7 @@
 
 export const resumeData = {
   header: {
-    name: "NINA MENEZES CUNHA",
+    name: "JULIANA VEIGA",
     role: "Cientista de Dados",
     links: [
       { type: "email", text: "ninamcunha@gmail.com", url: "mailto:ninamcunha@gmail.com" },

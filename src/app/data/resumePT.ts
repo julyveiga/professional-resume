@@ -311,12 +311,12 @@ export const certificationsPT: Certification[] = [
 export const summaryPT = `<strong class="font-bold text-gray-900">Cientista de Dados</strong> e economista com <strong class="font-bold text-gray-900">mais de 10 anos de experiência</strong> no uso de <strong class="font-bold text-gray-900">machine learning, inferência causal</strong> e narrativa de dados para resolver desafios sociais em larga escala e apoiar a tomada de decisões estratégicas no setor privado. Da <strong class="font-bold text-gray-900">formulação de políticas educacionais</strong> à construção de <strong class="font-bold text-gray-900">ferramentas preditivas para comunidades online</strong>, transformo <strong class="font-bold text-gray-900">pesquisas rigorosas</strong> em produtos que geram <strong class="font-bold text-gray-900">impacto</strong>. Atualmente, busco aplicar essa experiência no <strong class="font-bold text-gray-900">setor privado</strong>—utilizando dados para entender o comportamento de usuários, aprimorar produtos e apoiar decisões <strong class="font-bold text-gray-900">baseadas em evidências</strong>.`;
 
 export const headerPT = {
-  name: "Nina Menezes Cunha",
+  name: "Juliana Veiga",
   title: "Cientista de Dados",
   email: "ninamcunha@gmail.com",
-  linkedin: "https://www.linkedin.com/in/nina-menezes-cunha/",
-  github: "https://github.com/ninamcunha",
-  portfolio: "https://ninamcunha.github.io/my-portfolio/"
+  linkedin: "https://www.linkedin.com/in/juliana-veiga/",
+  github: "https://github.com/julyveiga",
+  portfolio: "https://julyveiga.github.io/professional-resume/"
 };
 
 export const sectionsPT = {

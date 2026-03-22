@@ -23,7 +23,7 @@ import {
 
 export const resumeData = {
   header: {
-    name: "NINA MENEZES CUNHA",
+    name: "JULIANA VEIGA",
     title: "Cientista de Dados",
     contact: [
       {

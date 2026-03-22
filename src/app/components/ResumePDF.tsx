@@ -332,6 +332,16 @@ const styles = StyleSheet.create({
 });
 
 // Helper function to strip HTML tags and convert to plain text with bold
+function linkedinProfileSlug(linkedinUrl: string): string {
+  try {
+    const path = new URL(linkedinUrl).pathname.replace(/\/$/, '');
+    const segments = path.split('/').filter(Boolean);
+    return segments[segments.length - 1] ?? '';
+  } catch {
+    return '';
+  }
+}
+
 const stripHtml = (html: string) => {
   return html
     .replace(/<strong[^>]*>/g, '')
@@ -403,7 +413,7 @@ const ResumePDF: React.FC<ResumePDFProps> = ({
               <Text style={styles.contactIcon}>⚲</Text>
               <Text style={styles.contactLabel}>LinkedIn:</Text>
               <Link src={header.linkedin} style={styles.contactLink}>
-                <Text>nina-menezes-cunha</Text>
+                <Text>{linkedinProfileSlug(header.linkedin)}</Text>
               </Link>
             </View>
           </View>

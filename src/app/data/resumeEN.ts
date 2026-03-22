@@ -311,12 +311,12 @@ export const certificationsEN: Certification[] = [
 export const summaryEN = `<strong class="font-bold text-gray-900">Data Scientist</strong> and economist with <strong class="font-bold text-gray-900">10+ years of experience</strong> using <strong class="font-bold text-gray-900">machine learning, causal inference,</strong> and data storytelling to solve large-scale social challenges and support strategic decision-making in the private sector. From shaping <strong class="font-bold text-gray-900">education policy</strong> to building <strong class="font-bold text-gray-900">predictive tools for online communities</strong>, I turn <strong class="font-bold text-gray-900">rigorous research</strong> into products that drive <strong class="font-bold text-gray-900">impact</strong>. Now eager to apply this foundation in the <strong class="font-bold text-gray-900">private sector</strong>—using data to uncover patterns in user behavior, improve products, and <strong class="font-bold text-gray-900">support smarter, evidence-based decisions</strong>.`;
 
 export const headerEN = {
-  name: "Nina Menezes Cunha",
+  name: "Juliana Veiga",
   title: "Data Scientist",
   email: "ninamcunha@gmail.com",
-  linkedin: "https://www.linkedin.com/in/nina-menezes-cunha/",
-  github: "https://github.com/ninamcunha",
-  portfolio: "https://ninamcunha.github.io/my-portfolio/"
+  linkedin: "https://www.linkedin.com/in/juliana-veiga/",
+  github: "https://github.com/julyveiga",
+  portfolio: "https://julyveiga.github.io/professional-resume/"
 };
 
 export const sectionsEN = {
