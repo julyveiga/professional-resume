@@ -34,8 +34,8 @@ interface Publication {
 
 interface Certification {
   title: string;
-  institution: string;
-  date: string;
+  institution?: string;
+  date?: string;
   credentialId?: string;
   link?: string;
   logo?: string;
@@ -48,17 +48,21 @@ interface ResumePDFProps {
   publications: Publication[];
   certifications: Certification[];
   summary: string;
+  achievements?: string;
+  footerNote?: string;
   header: {
     name: string;
     title: string;
     email: string;
     linkedin: string;
-    github: string;
-    portfolio: string;
+    github?: string;
+    portfolio?: string;
+    location?: string;
   };
   sections: {
     experience: string;
     summary: string;
+    achievements: string;
     skills: string;
     education: string;
     publications: string;
@@ -344,16 +348,26 @@ function linkedinProfileSlug(linkedinUrl: string): string {
 
 const stripHtml = (html: string) => {
   return html
+    .replace(/<p[^>]*>/gi, '')
+    .replace(/<\/p>/gi, '\n')
+    .replace(/<ul[^>]*>/gi, '\n')
+    .replace(/<\/ul>/gi, '\n')
+    .replace(/<li[^>]*>/gi, '• ')
+    .replace(/<\/li>/gi, '\n')
+    .replace(/<br\s*\/?>/gi, '\n')
     .replace(/<strong[^>]*>/g, '')
     .replace(/<\/strong>/g, '')
     .replace(/<em[^>]*>/g, '')
     .replace(/<\/em>/g, '')
     .replace(/<a[^>]*>/g, '')
     .replace(/<\/a>/g, '')
+    .replace(/class="[^"]*"/g, '')
     .replace(/&amp;/g, '&')
     .replace(/&lt;/g, '<')
     .replace(/&gt;/g, '>')
-    .replace(/&quot;/g, '"');
+    .replace(/&quot;/g, '"')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
 };
 
 // Helper to extract links from description
@@ -389,6 +403,8 @@ const ResumePDF: React.FC<ResumePDFProps> = ({
   publications,
   certifications,
   summary,
+  achievements = '',
+  footerNote = '',
   header,
   sections,
   language,
@@ -400,6 +416,11 @@ const ResumePDF: React.FC<ResumePDFProps> = ({
         <View style={styles.header}>
           <Text style={styles.name}>{header.name}</Text>
           <Text style={styles.jobTitle}>{header.title}</Text>
+          {header.location ? (
+            <View style={styles.contactRow}>
+              <Text style={styles.contactLabel}>{header.location}</Text>
+            </View>
+          ) : null}
           
           <View style={styles.contactRow}>
             <View style={styles.contactItem}>
@@ -418,7 +439,9 @@ const ResumePDF: React.FC<ResumePDFProps> = ({
             </View>
           </View>
           
+          {(header.github || header.portfolio) ? (
           <View style={styles.contactRow}>
+            {header.github ? (
             <View style={styles.contactItem}>
               <Text style={styles.contactIcon}>⚙</Text>
               <Text style={styles.contactLabel}>GitHub:</Text>
@@ -426,6 +449,8 @@ const ResumePDF: React.FC<ResumePDFProps> = ({
                 <Text>{header.github}</Text>
               </Link>
             </View>
+            ) : null}
+            {header.portfolio ? (
             <View style={styles.contactItem}>
               <Text style={styles.contactIcon}>●</Text>
               <Text style={styles.contactLabel}>{language === 'pt' ? 'Portfólio' : 'Portfolio'}:</Text>
@@ -433,7 +458,9 @@ const ResumePDF: React.FC<ResumePDFProps> = ({
                 <Text>{header.portfolio}</Text>
               </Link>
             </View>
+            ) : null}
           </View>
+          ) : null}
         </View>
 
         {/* Two Column Layout */}
@@ -461,6 +488,7 @@ const ResumePDF: React.FC<ResumePDFProps> = ({
             </View>
 
             {/* Publications */}
+            {publications.length > 0 ? (
             <View style={styles.section}>
               <Text style={styles.sectionTitle}>{sections.publications}</Text>
               {publications.map((pub, index) => (
@@ -498,6 +526,7 @@ const ResumePDF: React.FC<ResumePDFProps> = ({
                 </View>
               ))}
             </View>
+            ) : null}
           </View>
 
           {/* Right Column */}
@@ -507,6 +536,13 @@ const ResumePDF: React.FC<ResumePDFProps> = ({
               <Text style={styles.sectionTitle}>{sections.summary}</Text>
               <Text style={styles.summaryText}>{stripHtml(summary)}</Text>
             </View>
+
+            {achievements ? (
+            <View style={styles.section}>
+              <Text style={styles.sectionTitle}>{sections.achievements}</Text>
+              <Text style={styles.summaryText}>{stripHtml(achievements)}</Text>
+            </View>
+            ) : null}
 
             {/* Skills */}
             <View style={styles.section}>
@@ -539,18 +575,26 @@ const ResumePDF: React.FC<ResumePDFProps> = ({
               {certifications.map((cert, index) => (
                 <View key={index} style={index === certifications.length - 1 ? styles.lastCertificationItem : styles.certificationItem}>
                   <Text style={styles.certificationTitle}>{cert.title}</Text>
-                  <Text style={styles.certificationInstitution}>{cert.institution}</Text>
+                  {cert.institution ? (
+                    <Text style={styles.certificationInstitution}>{cert.institution}</Text>
+                  ) : null}
+                  {(cert.date || cert.credentialId) ? (
                   <View style={styles.certificationMeta}>
-                    <Text>{cert.date}</Text>
+                    {cert.date ? <Text>{cert.date}</Text> : null}
                     {cert.credentialId && (
                       <Text style={styles.certificationCredential}>
                         {language === 'pt' ? 'ID do Credencial' : 'Credential ID'}: {cert.credentialId}
                       </Text>
                     )}
                   </View>
+                  ) : null}
                 </View>
               ))}
             </View>
+
+            {footerNote ? (
+              <Text style={{ fontSize: 6.5, color: '#9ca3af', fontStyle: 'italic', marginTop: 8, textAlign: 'center' }}>{footerNote}</Text>
+            ) : null}
           </View>
         </View>
       </Page>

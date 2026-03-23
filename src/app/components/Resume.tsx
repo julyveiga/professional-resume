@@ -53,8 +53,8 @@ interface Publication {
 
 interface Certification {
   title: string;
-  institution: string;
-  date: string;
+  institution?: string;
+  date?: string;
   credentialId?: string;
   link?: string;
   logo?: string;
@@ -67,17 +67,21 @@ interface ResumeProps {
   publications: Publication[];
   certifications: Certification[];
   summary: string;
+  achievements?: string;
+  footerNote?: string;
   header: {
     name: string;
     title: string;
     email: string;
     linkedin: string;
-    github: string;
-    portfolio: string;
+    github?: string;
+    portfolio?: string;
+    location?: string;
   };
   sections: {
     experience: string;
     summary: string;
+    achievements: string;
     skills: string;
     education: string;
     publications: string;
@@ -104,6 +108,8 @@ const Resume = React.forwardRef<HTMLDivElement, ResumeProps>(({
   publications,
   certifications,
   summary,
+  achievements = '',
+  footerNote = '',
   header,
   sections,
   language,
@@ -123,6 +129,8 @@ const Resume = React.forwardRef<HTMLDivElement, ResumeProps>(({
       return <Lightbulb className="w-4 h-4" />;
     } else if (lowerTitle.includes('language') || lowerTitle.includes('idioma')) {
       return <LanguagesIcon className="w-4 h-4" />;
+    } else if (lowerTitle.includes('competência') || lowerTitle.includes('technical') || lowerTitle.includes('skills')) {
+      return <Briefcase className="w-4 h-4" />;
     }
     return <Code className="w-4 h-4" />;
   };
@@ -143,9 +151,15 @@ const Resume = React.forwardRef<HTMLDivElement, ResumeProps>(({
           </button>
 
           <h1 className="text-3xl font-extrabold text-red-900 mb-0.5 uppercase tracking-tight">{header.name}</h1>
-          <h2 className="text-lg font-bold text-orange-600 mb-2">{header.title}</h2>
+          <h2 className="text-base md:text-lg font-bold text-orange-600 mb-2 leading-snug">{header.title}</h2>
           
           <div className="flex flex-col gap-0.5 text-[0.65rem] text-gray-800 font-semibold">
+            {header.location && (
+              <div className="flex items-center gap-1">
+                <div className="bg-orange-100 p-0.5 rounded-full"><MapPin className="w-2.5 h-2.5 text-orange-600" /></div>
+                <span>{header.location}</span>
+              </div>
+            )}
             <a href={`mailto:${header.email}`} className="flex items-center gap-1 hover:text-red-700 transition-colors">
               <div className="bg-orange-100 p-0.5 rounded-full"><Mail className="w-2.5 h-2.5 text-orange-600" /></div>
               <span>{header.email}</span>
@@ -154,14 +168,18 @@ const Resume = React.forwardRef<HTMLDivElement, ResumeProps>(({
               <div className="bg-orange-100 p-0.5 rounded-full"><Linkedin className="w-2.5 h-2.5 text-orange-600" /></div>
               <span>{linkedinProfileSlug(header.linkedin)}</span>
             </a>
-            <a href={header.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:text-red-700 transition-colors">
-              <div className="bg-orange-100 p-0.5 rounded-full"><Github className="w-2.5 h-2.5 text-orange-600" /></div>
-              <span>{header.github}</span>
-            </a>
-            <a href={header.portfolio} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:text-red-700 transition-colors">
-              <div className="bg-orange-100 p-0.5 rounded-full"><Globe className="w-2.5 h-2.5 text-orange-600" /></div>
-              <span>{header.portfolio}</span>
-            </a>
+            {header.github ? (
+              <a href={header.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:text-red-700 transition-colors">
+                <div className="bg-orange-100 p-0.5 rounded-full"><Github className="w-2.5 h-2.5 text-orange-600" /></div>
+                <span>{header.github}</span>
+              </a>
+            ) : null}
+            {header.portfolio ? (
+              <a href={header.portfolio} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:text-red-700 transition-colors">
+                <div className="bg-orange-100 p-0.5 rounded-full"><Globe className="w-2.5 h-2.5 text-orange-600" /></div>
+                <span>{header.portfolio}</span>
+              </a>
+            ) : null}
           </div>
         </header>
 
@@ -170,10 +188,18 @@ const Resume = React.forwardRef<HTMLDivElement, ResumeProps>(({
           {/* 1. Summary */}
           <section>
             <h3 className="text-base font-extrabold text-red-900 border-b-4 border-red-900 mb-2.5 uppercase tracking-wide">{sections.summary}</h3>
-            <p className="text-[0.65rem] text-gray-700 leading-relaxed text-justify" dangerouslySetInnerHTML={{ __html: summary }} />
+            <div className="text-[0.65rem] text-gray-700 leading-relaxed text-justify space-y-2" dangerouslySetInnerHTML={{ __html: summary }} />
           </section>
 
-          {/* 2. Experience */}
+          {/* 2. Achievements */}
+          {achievements ? (
+            <section>
+              <h3 className="text-base font-extrabold text-red-900 border-b-4 border-red-900 mb-2.5 uppercase tracking-wide">{sections.achievements}</h3>
+              <div className="text-[0.65rem] text-gray-700 leading-relaxed" dangerouslySetInnerHTML={{ __html: achievements }} />
+            </section>
+          ) : null}
+
+          {/* 3. Experience */}
           <section>
             <h3 className="text-base font-extrabold text-red-900 border-b-4 border-red-900 mb-3 uppercase tracking-wide">{sections.experience}</h3>
             <div className="flex flex-col">
@@ -215,7 +241,7 @@ const Resume = React.forwardRef<HTMLDivElement, ResumeProps>(({
             </div>
           </section>
 
-          {/* 3. Education */}
+          {/* 4. Education */}
           <section>
             <h3 className="text-base font-extrabold text-red-900 border-b-4 border-red-900 mb-2.5 uppercase tracking-wide">{sections.education}</h3>
             <div className="flex flex-col">
@@ -250,7 +276,7 @@ const Resume = React.forwardRef<HTMLDivElement, ResumeProps>(({
             </div>
           </section>
 
-          {/* 4. Skills */}
+          {/* 5. Skills */}
           <section>
             <h3 className="text-base font-extrabold text-red-900 border-b-4 border-red-900 mb-2.5 uppercase tracking-wide">{sections.skills}</h3>
             <div className="flex flex-col">
@@ -271,7 +297,7 @@ const Resume = React.forwardRef<HTMLDivElement, ResumeProps>(({
             </div>
           </section>
 
-          {/* 5. Certifications */}
+          {/* 6. Certifications */}
           <section className="mt-6">
             <h3 className="text-base font-extrabold text-red-900 border-b-4 border-red-900 mb-2.5 uppercase tracking-wide">{sections.certifications}</h3>
             <div className="flex flex-col">
@@ -281,26 +307,32 @@ const Resume = React.forwardRef<HTMLDivElement, ResumeProps>(({
                   <div className="flex gap-2.5">
                     <div className="mt-0.5 min-w-8 h-8 rounded-lg flex items-center justify-center shrink-0 shadow-sm bg-white border border-gray-200">
                       {cert.logo ? (
-                        <img src={cert.logo} alt={cert.institution} className="w-6 h-6 object-contain" />
+                        <img src={cert.logo} alt={cert.institution ?? 'Certification'} className="w-6 h-6 object-contain" />
                       ) : (
                         <Award className="w-3.5 h-3.5 text-gray-500" />
                       )}
                     </div>
                     <div>
                       <h4 className="text-[0.65rem] text-red-900 leading-tight mb-0.5">{cert.title}</h4>
-                      <div className="font-bold text-orange-600 text-[0.6rem] mb-0.5">{cert.institution}</div>
-                      <div className="flex flex-col gap-0.5 text-[0.55rem] text-gray-500">
-                        <span className="flex items-center gap-0.5 font-bold">
-                          <Calendar className="w-2.5 h-2.5" />
-                          {cert.date}
-                        </span>
-                        {cert.credentialId && (
-                          <span className="text-[0.5rem]">{language === 'pt' ? 'ID do Credencial' : 'Credential ID'}: {cert.credentialId}</span>
-                        )}
-                        {cert.link && (
-                          <span className="text-[0.5rem]">{cert.link}</span>
-                        )}
-                      </div>
+                      {cert.institution ? (
+                        <div className="font-bold text-orange-600 text-[0.6rem] mb-0.5">{cert.institution}</div>
+                      ) : null}
+                      {(cert.date || cert.credentialId || cert.link) ? (
+                        <div className="flex flex-col gap-0.5 text-[0.55rem] text-gray-500">
+                          {cert.date ? (
+                            <span className="flex items-center gap-0.5 font-bold">
+                              <Calendar className="w-2.5 h-2.5" />
+                              {cert.date}
+                            </span>
+                          ) : null}
+                          {cert.credentialId && (
+                            <span className="text-[0.5rem]">{language === 'pt' ? 'ID do Credencial' : 'Credential ID'}: {cert.credentialId}</span>
+                          )}
+                          {cert.link && (
+                            <span className="text-[0.5rem]">{cert.link}</span>
+                          )}
+                        </div>
+                      ) : null}
                     </div>
                   </div>
                 </React.Fragment>
@@ -308,7 +340,8 @@ const Resume = React.forwardRef<HTMLDivElement, ResumeProps>(({
             </div>
           </section>
 
-          {/* 6. Publications */}
+          {/* 7. Publications */}
+          {publications.length > 0 ? (
           <section>
             <h3 className="text-base font-extrabold text-red-900 border-b-4 border-red-900 mb-3 uppercase tracking-wide">{sections.publications}</h3>
             <div className="flex flex-col">
@@ -345,6 +378,11 @@ const Resume = React.forwardRef<HTMLDivElement, ResumeProps>(({
               ))}
             </div>
           </section>
+          ) : null}
+
+          {footerNote ? (
+            <p className="text-[0.55rem] text-gray-500 text-center italic pt-2 border-t border-dashed border-gray-200">{footerNote}</p>
+          ) : null}
         </div>
 
         {/* DESKTOP VERSION - Hidden on mobile */}
@@ -394,6 +432,7 @@ const Resume = React.forwardRef<HTMLDivElement, ResumeProps>(({
             </section>
 
             {/* Publications */}
+            {publications.length > 0 ? (
             <section>
               <h3 className="text-base font-extrabold text-red-900 border-b-4 border-red-900 mb-3 uppercase tracking-wide">{sections.publications}</h3>
               <div className="flex flex-col">
@@ -430,6 +469,7 @@ const Resume = React.forwardRef<HTMLDivElement, ResumeProps>(({
                 ))}
               </div>
             </section>
+            ) : null}
           </div>
 
           {/* RIGHT COLUMN */}
@@ -437,8 +477,16 @@ const Resume = React.forwardRef<HTMLDivElement, ResumeProps>(({
             {/* Summary */}
             <section>
               <h3 className="text-base font-extrabold text-red-900 border-b-4 border-red-900 mb-2.5 uppercase tracking-wide">{sections.summary}</h3>
-              <p className="text-[0.65rem] text-gray-700 leading-relaxed text-justify" dangerouslySetInnerHTML={{ __html: summary }} />
+              <div className="text-[0.65rem] text-gray-700 leading-relaxed text-justify space-y-2" dangerouslySetInnerHTML={{ __html: summary }} />
             </section>
+
+            {/* Achievements */}
+            {achievements ? (
+              <section>
+                <h3 className="text-base font-extrabold text-red-900 border-b-4 border-red-900 mb-2.5 uppercase tracking-wide">{sections.achievements}</h3>
+                <div className="text-[0.65rem] text-gray-700 leading-relaxed" dangerouslySetInnerHTML={{ __html: achievements }} />
+              </section>
+            ) : null}
 
             {/* Education */}
             <section>
@@ -506,32 +554,42 @@ const Resume = React.forwardRef<HTMLDivElement, ResumeProps>(({
                     <div className="flex gap-2.5">
                       <div className="mt-0.5 min-w-8 h-8 rounded-lg flex items-center justify-center shrink-0 shadow-sm bg-white border border-gray-200">
                         {cert.logo ? (
-                          <img src={cert.logo} alt={cert.institution} className="w-6 h-6 object-contain" />
+                          <img src={cert.logo} alt={cert.institution ?? 'Certification'} className="w-6 h-6 object-contain" />
                         ) : (
                           <Award className="w-3.5 h-3.5 text-gray-500" />
                         )}
                       </div>
                       <div>
                         <h4 className="text-[0.65rem] text-red-900 leading-tight mb-0.5">{cert.title}</h4>
-                        <div className="font-bold text-orange-600 text-[0.6rem] mb-0.5">{cert.institution}</div>
-                        <div className="flex flex-col gap-0.5 text-[0.55rem] text-gray-500">
-                          <span className="flex items-center gap-0.5 font-bold">
-                            <Calendar className="w-2.5 h-2.5" />
-                            {cert.date}
-                          </span>
-                          {cert.credentialId && (
-                            <span className="text-[0.5rem]">{language === 'pt' ? 'ID do Credencial' : 'Credential ID'}: {cert.credentialId}</span>
-                          )}
-                          {cert.link && (
-                            <span className="text-[0.5rem]">{cert.link}</span>
-                          )}
-                        </div>
+                        {cert.institution ? (
+                          <div className="font-bold text-orange-600 text-[0.6rem] mb-0.5">{cert.institution}</div>
+                        ) : null}
+                        {(cert.date || cert.credentialId || cert.link) ? (
+                          <div className="flex flex-col gap-0.5 text-[0.55rem] text-gray-500">
+                            {cert.date ? (
+                              <span className="flex items-center gap-0.5 font-bold">
+                                <Calendar className="w-2.5 h-2.5" />
+                                {cert.date}
+                              </span>
+                            ) : null}
+                            {cert.credentialId && (
+                              <span className="text-[0.5rem]">{language === 'pt' ? 'ID do Credencial' : 'Credential ID'}: {cert.credentialId}</span>
+                            )}
+                            {cert.link && (
+                              <span className="text-[0.5rem]">{cert.link}</span>
+                            )}
+                          </div>
+                        ) : null}
                       </div>
                     </div>
                   </React.Fragment>
                 ))}
               </div>
             </section>
+
+            {footerNote ? (
+              <p className="text-[0.55rem] text-gray-500 text-center italic pt-2 border-t border-dashed border-gray-200 print:mt-2">{footerNote}</p>
+            ) : null}
           </div>
         </div>
       </div>

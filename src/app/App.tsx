@@ -10,6 +10,8 @@ import {
   publicationsPT,
   certificationsPT,
   summaryPT,
+  achievementsPT,
+  footerNotePT,
   headerPT,
   sectionsPT
 } from './data/resumePT';
@@ -22,6 +24,8 @@ import {
   publicationsEN,
   certificationsEN,
   summaryEN,
+  achievementsEN,
+  footerNoteEN,
   headerEN,
   sectionsEN
 } from './data/resumeEN';
@@ -59,6 +63,8 @@ function App() {
     publications: publicationsPT,
     certifications: certificationsPT,
     summary: summaryPT,
+    achievements: achievementsPT,
+    footerNote: footerNotePT,
     header: headerPT,
     sections: sectionsPT
   } : {
@@ -68,6 +74,8 @@ function App() {
     publications: publicationsEN,
     certifications: certificationsEN,
     summary: summaryEN,
+    achievements: achievementsEN,
+    footerNote: footerNoteEN,
     header: headerEN,
     sections: sectionsEN
   };
