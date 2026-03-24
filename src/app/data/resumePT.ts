@@ -43,20 +43,15 @@ export const experiencesPT: Experience[] = [
   {
     role: "Global Head Sr. CoE — Center of Excellence (Product & Design)",
     company: "AB InBev",
-    period: "nov 2023 – mar 2026",
+    period: "nov 2023 – atual",
     location: "São Paulo, Brasil",
     description: [
-      "Responsável pela criação e liderança do <strong>Center of Excellence de Produto & Design</strong> das marcas Zé Delivery e TaDa, estrutura organizacional que concentra conhecimento, governança e práticas escaláveis para o time de Produto e Design. O CoE atuou como habilitador estratégico com impacto direto na qualidade da experiência do consumidor e na maturidade operacional dos times, inspirando a companhia na criação de demais CoEs e atuando como referência global.",
-      "Idealizei o modelo do CoE com <strong>3 pilares estratégicos</strong> — Consumer Centricity, Quality Experience e Maturity & Ops — atuando em <strong>6 frentes operacionais</strong>: Program & Portfolio, Product Insights, Service Design Cross, Content Experience, Design System & Illustration e Experience Cross.",
-      "Liderei junto ao time o <strong>Maturity Framework</strong> que elevou o índice de maturidade de Produto de 2,70 para 4,11, com foco em 4 pilares: Foundation, Pessoas, Plataforma e Práticas.",
-      "Liderei ativamente a construção do modelo de <strong>Ways of Working (WoW)</strong> cross-áreas junto à diretoria de Tecnologia, automatizando e tornando o Upstream mensurável com ferramentas de IA, proporcionando visões executivas de completude de entregas e qualidade.",
-      "Implantei junto ao time o <strong>Experience Quality Review</strong>, garantindo a qualidade das entregas (Content, Design System e Illustration) pré-produção.",
-      "Liderei a estratégia junto ao especialista do <strong>Design System</strong>, proporcionando o facelift do app TaDa com 100% de componentes nas interfaces.",
-      "Liderei ativamente com a especialista de Content o <strong>Content IA HUB</strong> — plataforma com IA que dá autonomia a Produto, CRM e Agências para revisão de conteúdo com tom de voz da marca, resultando em 94% de ajustes pré-produção.",
-      "Idealizei e coloquei em prática a <strong>Plataforma de Pesquisas</strong>, desenvolvida 100% com IA, garantindo um repositório para uso dos times e captação ágil de insights.",
-      "Atuei estrategicamente junto aos times trazendo autonomia e consistência de assets que se tornaram parte do DNA de marca.",
-      "Planejei e conduzi junto a parceiros iniciativas de inovação, elevando a plataforma a uma experiência diferenciada na jornada de produto.",
-      "<strong>Stack & métodos:</strong> Figma · Notion · Jira · OKRs · Design Ops · Product Ops · Design System · Ways of Working · Experience Quality Review · Maturity Framework · GPT/IA · Stakeholder Management · Data Studio"
+      "Responsável pelo <strong>Center of Excellence de Produto & Design</strong> das marcas Zé Delivery e TaDa, estruturado em <strong>3 pilares estratégicos</strong>: Consumer Centricity, Quality Experience e Maturity & Ops. Atua de forma transversal à diretoria <strong>DTC (Direct to Consumer)</strong>, conectando governança, expertise e inovação para escalar entregas com consistência e excelência global.",
+      "Definiu e implementou o modelo operacional do CoE, incluindo frameworks, playbooks e rituais globais adotados por toda a diretoria de Produto & Design.",
+      "Lidera iniciativas de capacitação, mentoria e desenvolvimento de cultura orientada a dados e IA nos times de design e produto.",
+      "Atua como elo estratégico entre liderança de negócio e execução dos times, garantindo alinhamento de OKRs e consistência de entrega.",
+      "Estruturou sistema de governança e qualidade de experiência com aplicação transversal em múltiplos produtos e mercados.",
+      "Introduziu práticas de IA generativa no fluxo de trabalho de design e pesquisa, acelerando ciclos de discovery e prototipação."
     ]
   },
   {
@@ -180,18 +175,14 @@ export const certificationsPT: Certification[] = [
   { title: "Comunicação Não Violenta (CNV)" }
 ];
 
-export const summaryPT = `<p class="mb-2">Ao longo da minha carreira, liderei iniciativas com um propósito claro: <strong class="font-bold text-gray-900">tornar desafios em realidade</strong>! Tive a oportunidade de elevar a escala, a eficiência e a maturidade dos times de Produto e Design, fazendo a gestão de pessoas de forma eficiente e engajadora.</p>
-<p class="mb-2">Nas últimas 4 empresas em que atuei — <strong class="font-bold text-gray-900">AB InBev, Unico IDtech, RD (Raia Drogasil) e Natura</strong> — estruturei times de atuação cross-tribos, proporcionando a liderança de ecossistemas para Produto e Design, como: <strong class="font-bold text-gray-900">Maturity Framework, Ways of Working, Experience Quality Review e Hubs de IA</strong> que trouxeram autonomia para os times e conectaram a estratégia de negócio à execução, elevando a qualidade das entregas de forma mensurável.</p>
-<p class="mb-2">Combino <strong class="font-bold text-gray-900">liderança de pessoas</strong> com <strong class="font-bold text-gray-900">execução direta (mão na massa)</strong>, aplicando IA para criar sistemas diversos que otimizam fluxos e ciclos operacionais, escalando a performance dos times.</p>
-<p>Sou apaixonada por construir o que ainda não existe e transformar isso em resultado real — vivenciando na prática a parceria com liderados e parceiros em prol do sucesso dos desafios recebidos.</p>`;
+export const summaryPT = `<p>Ao longo da minha carreira, liderei iniciativas com um propósito claro: <strong class="font-bold text-gray-900">tornar desafios em realidade</strong>! Nas 4 empresas em que atuei — <strong class="font-bold text-gray-900">AB InBev, Unico IDtech, RD (Raia Drogasil) e Natura</strong> — estruturei times cross-tribos e ecossistemas de Produto e Design com <strong class="font-bold text-gray-900">Maturity Framework, Ways of Working, Experience Quality Review e Hubs de IA</strong>, conectando estratégia de negócio à execução e elevando a qualidade das entregas de forma mensurável. Combino <strong class="font-bold text-gray-900">liderança de pessoas</strong> com <strong class="font-bold text-gray-900">execução direta</strong>, aplicando IA para otimizar fluxos e escalar a performance dos times — apaixonada por construir o que ainda não existe e transformar isso em resultado real.</p>`;
 
 export const achievementsPT = `<ul class="list-disc pl-4 space-y-1 marker:text-red-300">
-<li>Estruturei do zero times de operação de Produto e Design / CoE (Centers of Excellence) em 4 grandes empresas (AB InBev, Unico IDtech, RD e Natura), viabilizando a escala consistente de squads e tribos.</li>
-<li>Liderei iniciativas que elevaram a maturidade de Produto de 2,70 para 4,11 e de Design de 2,40 para 4,10 — métrica estratégica e bonificada.</li>
-<li>Liderei times que construíram Design Systems utilizados em ambientes produtivos, com adoção exponencial chegando a <strong class="font-bold text-gray-900">249%</strong> de aumento de uso nas interfaces.</li>
-<li>Coloquei em prática em 2 empresas um processo de Experience Quality Review, garantindo que <strong class="font-bold text-gray-900">94%</strong> dos problemas de experiência fossem identificados antes de QA, assegurando consistência e tom de voz da marca.</li>
-<li>Junto à especialista de Visual Illustration, evoluímos de uma atuação tática para estratégica, tornando a ilustração um asset de marca conectado ao DNA das empresas.</li>
-<li>Liderei estrategicamente o time na criação de Hubs de IA, trazendo autonomia para os times em processos operacionais e gerando redução de <strong class="font-bold text-gray-900">80%</strong> do tempo gasto em burocracia.</li>
+<li>Estruturei do zero times de operação de Produto e Design / CoE (Centers of Excellence) em 4 grandes empresas (AB InBev, Unico IDtech, RD e Natura), viabilizando a escala consistente de squads e tribos</li>
+<li>Liderei iniciativas que elevaram a maturidade de Produto de 2,70 para 4,11 e de Design de 2,40 para 4,10 — métrica estratégica e bonificada</li>
+<li>Liderei times que construíram Design Systems utilizados em ambientes produtivos, com adoção exponencial chegando a <strong class="font-bold text-gray-900">249%</strong> de aumento de uso nas interfaces</li>
+<li>Coloquei em prática em 2 empresas um processo de Experience Quality Review, garantindo que <strong class="font-bold text-gray-900">94%</strong> dos problemas de experiência fossem identificados antes de QA, assegurando consistência e tom de voz da marca</li>
+<li>Junto à especialista de Visual Illustration, evoluímos de uma atuação tática para estratégica, tornando a ilustração um asset de marca conectado ao DNA das empresas</li>
 </ul>`;
 
 export const footerNotePT = "Versão final aprovada em março de 2026.";

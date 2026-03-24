@@ -43,20 +43,15 @@ export const experiencesEN: Experience[] = [
   {
     role: "Sr. Global Head CoE — Center of Excellence (Product & Design)",
     company: "AB InBev",
-    period: "Nov 2023 – Mar 2026",
+    period: "Nov 2023 – present",
     location: "São Paulo, Brazil",
     description: [
-      "Led the creation and leadership of the <strong>Product & Design Center of Excellence</strong> for the Zé Delivery and TaDa brands—an organizational structure that centralizes knowledge, governance, and scalable practices for Product and Design. The CoE acted as a strategic enabler with direct impact on consumer experience quality and team operational maturity, inspiring the company to launch additional CoEs and serving as a <strong>global reference</strong>.",
-      "Designed the CoE model with <strong>3 strategic pillars</strong> — Consumer Centricity, Quality Experience, and Maturity & Ops — across <strong>6 operational tracks</strong>: Program & Portfolio, Product Insights, Service Design Cross, Content Experience, Design System & Illustration, and Experience Cross.",
-      "Led the <strong>Maturity Framework</strong> with the team, raising Product maturity from 2.70 to 4.11, focused on four pillars: Foundation, People, Platform, and Practices.",
-      "Led the build of a cross-functional <strong>Ways of Working (WoW)</strong> model with Technology leadership, automating and making Upstream measurable with AI tools, delivering executive views of delivery completeness and quality.",
-      "Implemented <strong>Experience Quality Review</strong> with the team, ensuring quality of deliverables (Content, Design System, and Illustration) before production.",
-      "Led strategy with the Design System specialist, delivering a TaDa app facelift with <strong>100% of components</strong> in the interfaces.",
-      "Led with the Content specialist the <strong>Content IA HUB</strong>—an AI platform that empowers Product, CRM, and agencies to review content with brand voice, resulting in <strong>94% of adjustments</strong> before production.",
-      "Designed and launched the <strong>Research Platform</strong>, built 100% with AI, providing a repository for teams and fast insight capture.",
-      "Worked strategically with teams to bring autonomy and consistent assets that became part of brand DNA.",
-      "Planned and drove innovation initiatives with partners, elevating the platform to a differentiated experience across the product journey.",
-      "<strong>Stack & methods:</strong> Figma · Notion · Jira · OKRs · Design Ops · Product Ops · Design System · Ways of Working · Experience Quality Review · Maturity Framework · GPT/AI · Stakeholder Management · Data Studio"
+      "Leads the <strong>Product & Design Center of Excellence</strong> for the Zé Delivery and TaDa brands, structured around <strong>3 strategic pillars</strong>: Consumer Centricity, Quality Experience, and Maturity & Ops. Works cross-functionally with the <strong>DTC (Direct to Consumer)</strong> organization, connecting governance, expertise, and innovation to scale delivery with consistency and global excellence.",
+      "Defined and implemented the CoE operating model, including frameworks, playbooks, and global rituals adopted across the Product & Design leadership.",
+      "Leads upskilling, mentoring, and culture initiatives focused on data- and AI-driven practices for design and product teams.",
+      "Acts as a strategic bridge between business leadership and execution teams, aligning OKRs and delivery consistency.",
+      "Built an experience governance and quality system applied across multiple products and markets.",
+      "Introduced generative AI practices into design and research workflows, accelerating discovery and prototyping cycles."
     ]
   },
   {
@@ -180,18 +175,14 @@ export const certificationsEN: Certification[] = [
   { title: "Nonviolent Communication (NVC)" }
 ];
 
-export const summaryEN = `<p class="mb-2">Throughout my career I have led initiatives with a clear purpose: <strong class="font-bold text-gray-900">turning challenges into reality</strong>. I have helped raise scale, efficiency, and maturity for Product and Design teams, managing people in an efficient and engaging way.</p>
-<p class="mb-2">In the last four companies I worked with — <strong class="font-bold text-gray-900">AB InBev, Unico IDtech, RD (Raia Drogasil), and Natura</strong> — I structured cross-tribe teams and led ecosystems for Product and Design, including <strong class="font-bold text-gray-900">Maturity Framework, Ways of Working, Experience Quality Review, and AI hubs</strong> that gave teams autonomy and connected business strategy to execution, improving delivery quality in measurable ways.</p>
-<p class="mb-2">I combine <strong class="font-bold text-gray-900">people leadership</strong> with <strong class="font-bold text-gray-900">hands-on execution</strong>, using AI to build systems that optimize flows and operational cycles and scale team performance.</p>
-<p>I am passionate about building what does not yet exist and turning it into real outcomes—partnering with reports and stakeholders to deliver on the challenges we take on.</p>`;
+export const summaryEN = `<p>Throughout my career I have led initiatives with a clear purpose: <strong class="font-bold text-gray-900">turning challenges into reality</strong>. In the four companies where I have worked — <strong class="font-bold text-gray-900">AB InBev, Unico IDtech, RD (Raia Drogasil), and Natura</strong> — I built cross-tribe teams and Product & Design ecosystems with <strong class="font-bold text-gray-900">Maturity Framework, Ways of Working, Experience Quality Review, and AI hubs</strong>, connecting business strategy to execution and raising delivery quality in measurable ways. I combine <strong class="font-bold text-gray-900">people leadership</strong> with <strong class="font-bold text-gray-900">hands-on execution</strong>, using AI to optimize flows and scale team performance — passionate about building what does not yet exist and turning it into real results.</p>`;
 
 export const achievementsEN = `<ul class="list-disc pl-4 space-y-1 marker:text-red-300">
-<li>Built Product and Design operations / CoE (Centers of Excellence) teams from scratch at four major companies (AB InBev, Unico IDtech, RD, and Natura), enabling consistent scaling of squads and tribes.</li>
-<li>Led initiatives that raised Product maturity from 2.70 to 4.11 and Design from 2.40 to 4.10 — a strategic, incentivized metric.</li>
-<li>Led teams that built Design Systems used in production, with adoption growth of up to <strong class="font-bold text-gray-900">249%</strong> in interfaces.</li>
-<li>Implemented Experience Quality Review at two companies so that <strong class="font-bold text-gray-900">94%</strong> of experience issues were caught before QA, protecting brand consistency and voice.</li>
-<li>With the Visual Illustration specialist, evolved illustration from tactical to strategic work, making it a brand asset aligned with company DNA.</li>
-<li>Strategically led the team in creating AI hubs, giving teams autonomy in operations and cutting bureaucracy time by <strong class="font-bold text-gray-900">80%</strong>.</li>
+<li>Built Product and Design operations / CoE (Centers of Excellence) teams from scratch at four major companies (AB InBev, Unico IDtech, RD, and Natura), enabling consistent scaling of squads and tribes</li>
+<li>Led initiatives that raised Product maturity from 2.70 to 4.11 and Design from 2.40 to 4.10 — a strategic, incentivized metric</li>
+<li>Led teams that built Design Systems used in production, with adoption growth of up to <strong class="font-bold text-gray-900">249%</strong> in interfaces</li>
+<li>Implemented Experience Quality Review at two companies so that <strong class="font-bold text-gray-900">94%</strong> of experience issues were caught before QA, protecting brand consistency and voice</li>
+<li>With the Visual Illustration specialist, evolved illustration from tactical to strategic work, making it a brand asset aligned with company DNA</li>
 </ul>`;
 
 export const footerNoteEN = "Final version approved March 2026.";

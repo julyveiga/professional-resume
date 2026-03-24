@@ -89,6 +89,8 @@ interface ResumeProps {
   };
   language: 'pt' | 'en';
   onLanguageToggle: () => void;
+  /** Quando true, o toggle de idioma no cabeçalho fica oculto (ex.: menu global). */
+  hideLanguageToggle?: boolean;
 }
 
 function linkedinProfileSlug(linkedinUrl: string): string {
@@ -113,7 +115,8 @@ const Resume = React.forwardRef<HTMLDivElement, ResumeProps>(({
   header,
   sections,
   language,
-  onLanguageToggle
+  onLanguageToggle,
+  hideLanguageToggle = false
 }, ref) => {
   const getSkillIcon = (title: string) => {
     const lowerTitle = title.toLowerCase();
@@ -140,15 +143,16 @@ const Resume = React.forwardRef<HTMLDivElement, ResumeProps>(({
       <div className="p-5 md:p-6 max-w-[1024px] mx-auto print:shadow-none print:max-w-none print:p-3 print:m-0" id="resume-content" ref={ref}>
         {/* Header */}
         <header className="mb-3 pb-2 relative print:mb-2 print:pb-1">
-          {/* Language Toggle Button */}
-          <button
-            onClick={onLanguageToggle}
-            className="absolute top-0 right-0 flex items-center gap-1.5 px-3 py-1.5 bg-red-900 text-white text-xs font-bold rounded-md hover:bg-red-800 transition-colors print:hidden"
-            aria-label="Toggle language"
-          >
-            <LanguagesIcon className="w-3.5 h-3.5" />
-            {language === 'pt' ? 'EN' : 'PT'}
-          </button>
+          {!hideLanguageToggle ? (
+            <button
+              onClick={onLanguageToggle}
+              className="absolute top-0 right-0 flex items-center gap-1.5 px-3 py-1.5 bg-red-900 text-white text-xs font-bold rounded-md hover:bg-red-800 transition-colors print:hidden"
+              aria-label="Toggle language"
+            >
+              <LanguagesIcon className="w-3.5 h-3.5" />
+              {language === 'pt' ? 'EN' : 'PT'}
+            </button>
+          ) : null}
 
           <h1 className="text-3xl font-extrabold text-red-900 mb-0.5 uppercase tracking-tight">{header.name}</h1>
           <h2 className="text-base md:text-lg font-bold text-orange-600 mb-2 leading-snug">{header.title}</h2>
@@ -183,8 +187,8 @@ const Resume = React.forwardRef<HTMLDivElement, ResumeProps>(({
           </div>
         </header>
 
-        {/* MOBILE VERSION - Hidden on desktop */}
-        <div className="flex flex-col gap-5 md:hidden print:hidden">
+        {/* Conteúdo em 1 coluna no browser; oculto na impressão (usa layout de 2 colunas em baixo) */}
+        <div className="flex flex-col gap-5 print:hidden">
           {/* 1. Summary */}
           <section>
             <h3 className="text-base font-extrabold text-red-900 border-b-4 border-red-900 mb-2.5 uppercase tracking-wide">{sections.summary}</h3>
@@ -385,8 +389,8 @@ const Resume = React.forwardRef<HTMLDivElement, ResumeProps>(({
           ) : null}
         </div>
 
-        {/* DESKTOP VERSION - Hidden on mobile */}
-        <div className="hidden md:grid md:grid-cols-2 md:gap-x-4 md:gap-y-5 print:grid print:grid-cols-2 print:gap-x-4 print:gap-y-5">
+        {/* 2 colunas apenas na impressão / PDF */}
+        <div className="hidden print:grid print:grid-cols-2 print:gap-x-4 print:gap-y-5 resume-print-two-columns">
           {/* LEFT COLUMN */}
           <div className="flex flex-col gap-5">
             {/* Experience */}

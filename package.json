@@ -6,6 +6,8 @@
   "scripts": {
     "build": "vite build",
     "dev": "vite",
+    "dev:clean": "rm -rf node_modules/.vite && vite",
+    "dev:fix": "bash -c 'kill -9 $(lsof -t -i:5173) 2>/dev/null || true; kill -9 $(lsof -t -i:5174) 2>/dev/null || true; kill -9 $(lsof -t -i:5175) 2>/dev/null || true; rm -rf node_modules/.vite; exec vite'",
     "preview": "vite preview",
     "deploy": "vite build && gh-pages -d dist"
   },
