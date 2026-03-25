@@ -93,7 +93,7 @@ export const experiencesEN: Experience[] = [
   {
     role: "CoE | Design Ops Lead & PM | Lead Design System",
     company: "Natura",
-    period: "Jan 2015 – Dec 2020",
+    period: "Dec 2013 – Dec 2020",
     location: "São Paulo, Brazil (6 years)",
     logo: experienceLogo('natura.png'),
     description: [
@@ -230,7 +230,6 @@ export const skillHighlightsEN: SkillHighlightGroup[] = [
     ],
   },
   {
-    rowLabel: "Stack",
     cards: [
       {
         source: "Conquer",

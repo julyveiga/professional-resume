@@ -49,12 +49,12 @@ export const experiencesPT: Experience[] = [
     location: "São Paulo, Brasil",
     logo: experienceLogo('ab-inbev.png'),
     description: [
-      "Liderando a criação do <strong>Center of Excellence (CoE) de Produto & Design</strong> do Zé Delivery e TaDa, estruturado em <strong>3 pilares</strong> — Consumer Centricity, Quality Experience e Maturity & Ops — com atuação cross em <strong>6 frentes operacionais</strong>",
-      "Elevando a maturidade de Produto de <strong>2,70 para 4,11</strong> com Maturity Framework próprio, com foco em Foundation, Pessoas, Plataforma e Práticas",
-      "Implantando o <strong>Ways of Working</strong> automatizados com IA, tornando o Upstream mensurável e proporcionando visões executivas de qualidade e completude",
-      "Idealizando o <strong>Processo de Experience Quality Review</strong> garantindo a qualidade de Content, Design System e Illustration pré-produção",
-      "Idealizando junto ao time o <strong>Content IA HUB</strong> — plataforma com IA para revisão de conteúdo com tom de voz da marca — resultando em <strong>94%</strong> de ajustes antes da produção",
-      "Desenvolvendo a <strong>Plataforma de Pesquisas 100% com IA</strong> como repositório centralizado de insights para os times"
+      "Responsável pela criação do Center of Excellence (CoE) de Produto & Design do Zé Delivery e TaDa, estruturado em 3 pilares — Consumer Centricity, Quality Experience e Maturity & Ops — inspirando a companhia na criação de demais CoE's",
+      "Liderei iniciativas para elevar a maturidade de Produto de 2,70 para 4,11 com Maturity Framework próprio, com foco em Foundation, Pessoas, Plataforma e Práticas",
+      "Implantei junto ao time o Ways of Working de Produto e Design automatizações de IA, tornando o Upstream mensurável e proporcionando visões executivas de qualidade e completude",
+      "Idealizei o Processo de Experience Quality Review garantindo a qualidade de Content, Design System e Illustration pré-produção",
+      "Conduzi junto ao time o Content IA HUB — plataforma com IA para revisão de conteúdo com tom de voz da marca — resultando em 94% de ajustes antes da produção",
+      "Desenvolvi a Plataforma de Pesquisas 100% com IA como repositório centralizado de insights para os times"
     ]
   },
   {
@@ -92,7 +92,7 @@ export const experiencesPT: Experience[] = [
   {
     role: "CoE | Design Ops Lead & PM | Lead Design System",
     company: "Natura",
-    period: "jan 2015 – dez 2020",
+    period: "DEZ 2013 – DEZ 2020",
     location: "São Paulo, Brasil (6 anos)",
     logo: experienceLogo('natura.png'),
     description: [
@@ -244,7 +244,6 @@ export const skillHighlightsPT: SkillHighlightGroup[] = [
     ],
   },
   {
-    rowLabel: "Stack",
     cards: [
       {
         source: "Conquer",

@@ -1,4 +1,5 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import useEmblaCarousel from 'embla-carousel-react';
 import {
   Mail,
   Linkedin,
@@ -9,9 +10,13 @@ import {
   ChevronDown,
   ChevronUp,
   Briefcase,
+  TrendingUp,
+  LayoutGrid,
+  ShieldCheck,
+  Palette,
+  Building2,
 } from 'lucide-react';
 import { useAppLanguage } from '../context/AppLanguageContext';
-import { Switch } from '../components/ui/switch';
 
 import {
   experiencesPT,
@@ -78,6 +83,145 @@ function SkillHighlightCardView({ card }: { card: SkillHighlightCard }) {
   );
 }
 
+type AchievementCard = {
+  title: string;
+  bodyHtml: string;
+  icon: React.ReactNode;
+  iconWrapperClassName: string;
+};
+
+function stripHtmlToText(html: string): string {
+  if (typeof window === 'undefined') return html.replace(/<[^>]+>/g, ' ');
+  const el = document.createElement('div');
+  el.innerHTML = html;
+  return (el.textContent ?? '').replace(/\s+/g, ' ').trim();
+}
+
+function achievementCardsFromHtml(achievementsHtml: string): AchievementCard[] {
+  if (typeof window === 'undefined') return [];
+  const doc = new DOMParser().parseFromString(achievementsHtml, 'text/html');
+  const items = Array.from(doc.querySelectorAll('li'));
+
+  return items.map((li) => {
+    const bodyHtml = li.innerHTML.trim();
+    const text = stripHtmlToText(bodyHtml).toLowerCase();
+
+    const meta: Omit<AchievementCard, 'bodyHtml'> = (() => {
+      if (text.includes('coe') || text.includes('center') || text.includes('centers of excellence')) {
+        return {
+          title: 'Estruturação de CoE',
+          icon: <Building2 className="h-5 w-5 text-white" />,
+          iconWrapperClassName: 'bg-violet-500',
+        };
+      }
+      if (text.includes('maturidade') || text.includes('maturity')) {
+        return {
+          title: 'Evolução de maturidade',
+          icon: <TrendingUp className="h-5 w-5 text-white" />,
+          iconWrapperClassName: 'bg-emerald-500',
+        };
+      }
+      if (text.includes('design system') || text.includes('design systems')) {
+        return {
+          title: 'Adoção de Design System',
+          icon: <LayoutGrid className="h-5 w-5 text-white" />,
+          iconWrapperClassName: 'bg-indigo-500',
+        };
+      }
+      if (text.includes('quality review') || text.includes('experience quality')) {
+        return {
+          title: 'Experience Quality Review',
+          icon: <ShieldCheck className="h-5 w-5 text-white" />,
+          iconWrapperClassName: 'bg-sky-500',
+        };
+      }
+      return {
+        title: 'Evolução de ilustração',
+        icon: <Palette className="h-5 w-5 text-white" />,
+        iconWrapperClassName: 'bg-pink-500',
+      };
+    })();
+
+    return {
+      ...meta,
+      bodyHtml,
+    };
+  });
+}
+
+function AchievementsCarousel({ achievementsHtml }: { achievementsHtml: string }) {
+  const cards = useMemo(() => achievementCardsFromHtml(achievementsHtml), [achievementsHtml]);
+  const [emblaRef, emblaApi] = useEmblaCarousel({ align: 'start', loop: false, skipSnaps: false });
+  const [canPrev, setCanPrev] = useState(false);
+  const [canNext, setCanNext] = useState(false);
+
+  const update = useCallback(() => {
+    if (!emblaApi) return;
+    setCanPrev(emblaApi.canScrollPrev());
+    setCanNext(emblaApi.canScrollNext());
+  }, [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    update();
+    emblaApi.on('select', update);
+    emblaApi.on('reInit', update);
+    return () => {
+      emblaApi.off('select', update);
+      emblaApi.off('reInit', update);
+    };
+  }, [emblaApi, update]);
+
+  if (cards.length === 0) return null;
+
+  return (
+    <div className="relative">
+      <div className="overflow-hidden" ref={emblaRef}>
+        <div className="flex gap-4">
+          {cards.map((card, idx) => (
+            <div key={idx} className="flex-[0_0_88%] sm:flex-[0_0_48%] lg:flex-[0_0_46%]">
+              <article className="h-full rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
+                <div className="mb-4 flex items-center gap-3">
+                  <div
+                    className={`flex h-10 w-10 items-center justify-center rounded-xl shadow-sm ${card.iconWrapperClassName}`}
+                    aria-hidden
+                  >
+                    {card.icon}
+                  </div>
+                  <h3 className="text-base font-bold text-gray-900">{card.title}</h3>
+                </div>
+                <p
+                  className="text-sm leading-relaxed text-gray-600 [&_strong]:font-bold [&_strong]:text-gray-900"
+                  dangerouslySetInnerHTML={{ __html: card.bodyHtml }}
+                />
+              </article>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <button
+        type="button"
+        onClick={() => emblaApi?.scrollPrev()}
+        disabled={!canPrev}
+        className="absolute -left-3 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 shadow-sm transition disabled:cursor-not-allowed disabled:opacity-40"
+        aria-label="Anterior"
+      >
+        ‹
+      </button>
+      <button
+        type="button"
+        onClick={() => emblaApi?.scrollNext()}
+        disabled={!canNext}
+        className="absolute -right-3 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 shadow-sm transition disabled:cursor-not-allowed disabled:opacity-40"
+        aria-label="Próximo"
+      >
+        ›
+      </button>
+    </div>
+  );
+}
+
 const labels = {
   pt: {
     sidebarMotto:
@@ -95,8 +239,6 @@ const labels = {
       desc: 'Marcação de exemplo — hub de IA, rituais e governança alinhados a OKRs.',
     },
     projectLink: 'Ver projeto',
-    detailsToggle: 'Detalhar experiências',
-    detailsHint: 'Ative para ver bullets e descrições completas em cada cargo.',
     hardSkillsTags: [
       'IA generativa',
       'Gestão de stakeholders',
@@ -138,8 +280,6 @@ const labels = {
       desc: 'Placeholder — AI hub, rituals, and governance aligned with OKRs.',
     },
     projectLink: 'View project',
-    detailsToggle: 'Show experience details',
-    detailsHint: 'Turn on to show full bullets and descriptions for each role.',
     hardSkillsTags: [
       'Generative AI',
       'Stakeholder Management',
@@ -169,12 +309,7 @@ const labels = {
 
 export default function ResumeModernPage() {
   const { language } = useAppLanguage();
-  const [showExperienceDetails, setShowExperienceDetails] = useState(true);
   const [openExpIndex, setOpenExpIndex] = useState<number | null>(0);
-
-  useEffect(() => {
-    if (showExperienceDetails) setOpenExpIndex(0);
-  }, [showExperienceDetails]);
 
   const L = labels[language];
 
@@ -334,39 +469,25 @@ export default function ResumeModernPage() {
           </section>
 
           <section className="mb-10">
-            <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <div className="mb-4">
               <div>
                 <h2 className="text-lg font-bold text-gray-900">{data.sections.experience}</h2>
-              </div>
-              <div className="flex flex-col items-start gap-1 sm:items-end">
-                <div className="flex items-center gap-2">
-                  <span className="text-xs font-medium text-gray-600">{L.detailsToggle}</span>
-                  <Switch
-                    checked={showExperienceDetails}
-                    onCheckedChange={setShowExperienceDetails}
-                    aria-label={L.detailsToggle}
-                    className="data-[state=checked]:bg-blue-600"
-                  />
-                </div>
-                <p className="max-w-xs text-right text-[0.65rem] text-gray-500">{L.detailsHint}</p>
               </div>
             </div>
 
             <div className="space-y-6">
               {data.experiences.map((exp, index) => {
                 const isOpen = openExpIndex === index;
-                const showBullets = showExperienceDetails && isOpen;
+                const showBullets = isOpen;
 
                 return (
                   <div key={`${exp.company}-${index}`}>
                     <div className="overflow-hidden rounded-xl border border-gray-100 bg-white shadow-sm">
                       <button
                         type="button"
-                        onClick={() => showExperienceDetails && toggleExp(index)}
-                        className={`flex w-full items-start gap-3 p-4 text-left transition-colors ${
-                          showExperienceDetails ? 'cursor-pointer hover:bg-gray-50/80' : 'cursor-default'
-                        }`}
-                        aria-expanded={showExperienceDetails ? isOpen : undefined}
+                        onClick={() => toggleExp(index)}
+                        className="flex w-full cursor-pointer items-start gap-3 p-4 text-left transition-colors hover:bg-gray-50/80"
+                        aria-expanded={isOpen}
                       >
                         <div className="relative mt-0.5 h-16 w-16 shrink-0 overflow-hidden rounded-2xl bg-neutral-200/40 shadow-sm ring-1 ring-gray-200/90">
                           {exp.logo ? (
@@ -395,15 +516,9 @@ export default function ResumeModernPage() {
                           <h3 className="text-base font-bold text-gray-900">{exp.role}</h3>
                           <p className="text-sm font-semibold text-orange-600">{exp.company}</p>
                         </div>
-                        {showExperienceDetails ? (
-                          <span className="shrink-0 text-gray-400">
-                            {isOpen ? (
-                              <ChevronUp className="h-5 w-5" />
-                            ) : (
-                              <ChevronDown className="h-5 w-5" />
-                            )}
-                          </span>
-                        ) : null}
+                        <span className="shrink-0 text-gray-400">
+                          {isOpen ? <ChevronUp className="h-5 w-5" /> : <ChevronDown className="h-5 w-5" />}
+                        </span>
                       </button>
                       {showBullets ? (
                         <ul className="border-t border-gray-100 px-4 pb-4 pt-0">
@@ -427,10 +542,7 @@ export default function ResumeModernPage() {
             <div className="mb-3">
               <h2 className="text-lg font-bold text-gray-900">{data.sections.achievements}</h2>
             </div>
-            <div
-              className="max-w-none text-sm leading-relaxed text-gray-700 [&_li]:marker:text-gray-400 [&_strong]:font-bold"
-              dangerouslySetInnerHTML={{ __html: data.achievements }}
-            />
+            <AchievementsCarousel achievementsHtml={data.achievements} />
           </section>
 
           <section>
