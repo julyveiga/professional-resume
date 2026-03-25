@@ -39,19 +39,22 @@ export interface Certification {
   logo?: string;
 }
 
+const experienceLogo = (file: string) => `${import.meta.env.BASE_URL}logos/${file}`;
+
 export const experiencesPT: Experience[] = [
   {
     role: "Global Head Sr. CoE — Center of Excellence (Product & Design)",
     company: "AB InBev",
     period: "nov 2023 – atual",
     location: "São Paulo, Brasil",
+    logo: experienceLogo('ab-inbev.png'),
     description: [
-      "Responsável pelo <strong>Center of Excellence de Produto & Design</strong> das marcas Zé Delivery e TaDa, estruturado em <strong>3 pilares estratégicos</strong>: Consumer Centricity, Quality Experience e Maturity & Ops. Atua de forma transversal à diretoria <strong>DTC (Direct to Consumer)</strong>, conectando governança, expertise e inovação para escalar entregas com consistência e excelência global.",
-      "Definiu e implementou o modelo operacional do CoE, incluindo frameworks, playbooks e rituais globais adotados por toda a diretoria de Produto & Design.",
-      "Lidera iniciativas de capacitação, mentoria e desenvolvimento de cultura orientada a dados e IA nos times de design e produto.",
-      "Atua como elo estratégico entre liderança de negócio e execução dos times, garantindo alinhamento de OKRs e consistência de entrega.",
-      "Estruturou sistema de governança e qualidade de experiência com aplicação transversal em múltiplos produtos e mercados.",
-      "Introduziu práticas de IA generativa no fluxo de trabalho de design e pesquisa, acelerando ciclos de discovery e prototipação."
+      "Liderando a criação do <strong>Center of Excellence (CoE) de Produto & Design</strong> do Zé Delivery e TaDa, estruturado em <strong>3 pilares</strong> — Consumer Centricity, Quality Experience e Maturity & Ops — com atuação cross em <strong>6 frentes operacionais</strong>",
+      "Elevando a maturidade de Produto de <strong>2,70 para 4,11</strong> com Maturity Framework próprio, com foco em Foundation, Pessoas, Plataforma e Práticas",
+      "Implantando o <strong>Ways of Working</strong> automatizados com IA, tornando o Upstream mensurável e proporcionando visões executivas de qualidade e completude",
+      "Idealizando o <strong>Processo de Experience Quality Review</strong> garantindo a qualidade de Content, Design System e Illustration pré-produção",
+      "Idealizando junto ao time o <strong>Content IA HUB</strong> — plataforma com IA para revisão de conteúdo com tom de voz da marca — resultando em <strong>94%</strong> de ajustes antes da produção",
+      "Desenvolvendo a <strong>Plataforma de Pesquisas 100% com IA</strong> como repositório centralizado de insights para os times"
     ]
   },
   {
@@ -59,6 +62,7 @@ export const experiencesPT: Experience[] = [
     company: "Unico IDtech",
     period: "fev 2022 – nov 2023",
     location: "São Paulo, Brasil",
+    logo: experienceLogo('unico.png'),
     description: [
       "Responsável pela criação e liderança do <strong>Design Ops</strong> da Unico, estruturando frentes cross-design que ampliaram a consistência e eficiência do time. Liderou a implementação das disciplinas de Acessibilidade, Content Design, Service Design, Research Ops e Design System em uma das maiores identech do Brasil.",
       "Estruturei o time cross-produtos e defini a estratégia de Design Ops alinhada ao impacto no negócio.",
@@ -75,6 +79,7 @@ export const experiencesPT: Experience[] = [
     company: "RD (Raia Drogasil)",
     period: "jan 2021 – fev 2022",
     location: "São Paulo, Brasil",
+    logo: experienceLogo('rd.png'),
     description: [
       "Responsável pela criação e liderança da área de <strong>Design Ops</strong> na RD, estruturando o time e consolidando disciplinas fundamentais para elevar a maturidade de design em uma das maiores redes de varejo farmacêutico do Brasil.",
       "Estruturei e liderei o time de Design Ops com visão estratégica e impacto transversal.",
@@ -89,6 +94,7 @@ export const experiencesPT: Experience[] = [
     company: "Natura",
     period: "jan 2015 – dez 2020",
     location: "São Paulo, Brasil (6 anos)",
+    logo: experienceLogo('natura.png'),
     description: [
       "Atuei como <strong>Designer</strong> especialista em Análise Heurística até assumir a liderança do <strong>Design Ops</strong> e a gestão do <strong>Design System</strong> da maior empresa de cosméticos da América Latina.",
       "<strong>Design Ops Lead & PM | Lead Design System (2018 – 2020)</strong>",
@@ -102,19 +108,11 @@ export const experiencesPT: Experience[] = [
     ]
   },
   {
-    role: "Consultora de Projetos Digitais",
-    company: "Concrete Solutions / Natura",
-    period: "dez 2013 – jan 2015",
-    location: "São Paulo, Brasil",
-    description: [
-      "Consultoria em projetos de marketing digital."
-    ]
-  },
-  {
     role: "Design Lead",
     company: "Agência Pipeline",
     period: "jan 2013 – dez 2013",
     location: "São Paulo, Brasil",
+    logo: experienceLogo('pipeline.png'),
     description: [
       "Liderança de projetos digitais, gestão de times e direcionamento criativo."
     ]
@@ -124,6 +122,7 @@ export const experiencesPT: Experience[] = [
     company: "Iguana Sports",
     period: "nov 2011 – jan 2013",
     location: "São Paulo, Brasil",
+    logo: experienceLogo('iguana.png'),
     description: [
       "Arquitetura de informação, design de interfaces e planejamento de projetos digitais para o ecossistema de portais esportivos da empresa."
     ]
@@ -133,6 +132,7 @@ export const experiencesPT: Experience[] = [
     company: "Vivo (Telefônica Brasil)",
     period: "dez 1998 – jan 2011",
     location: "São Paulo, Brasil",
+    logo: experienceLogo('vivo.png'),
     description: [
       "12 anos de atuação em gestão de projetos de canais digitais, implementação de ferramentas corporativas (CMS, SEO, métricas) e arquitetura de informação para portais corporativos."
     ]
@@ -175,14 +175,14 @@ export const certificationsPT: Certification[] = [
   { title: "Comunicação Não Violenta (CNV)" }
 ];
 
-export const summaryPT = `<p>Ao longo da minha carreira, liderei iniciativas com um propósito claro: <strong class="font-bold text-gray-900">tornar desafios em realidade</strong>! Nas 4 empresas em que atuei — <strong class="font-bold text-gray-900">AB InBev, Unico IDtech, RD (Raia Drogasil) e Natura</strong> — estruturei times cross-tribos e ecossistemas de Produto e Design com <strong class="font-bold text-gray-900">Maturity Framework, Ways of Working, Experience Quality Review e Hubs de IA</strong>, conectando estratégia de negócio à execução e elevando a qualidade das entregas de forma mensurável. Combino <strong class="font-bold text-gray-900">liderança de pessoas</strong> com <strong class="font-bold text-gray-900">execução direta</strong>, aplicando IA para otimizar fluxos e escalar a performance dos times — apaixonada por construir o que ainda não existe e transformar isso em resultado real.</p>`;
+export const summaryPT = `<p>Lidero e desenvolvo iniciativas com um propósito claro: <strong class="font-bold text-gray-900">tornar desafios em realidade</strong>!</p><p>Nas 4 empresas em que atuei — <strong class="font-bold text-gray-900">AB InBev, Unico IDtech, RD (Raia Drogasil) e Natura</strong> — estruturei times cross-tribos e ecossistemas de Produto e Design com <strong class="font-bold text-gray-900">Maturity Framework, Ways of Working, Experience Quality Review e Hubs de IA</strong>, dentre outras iniciativas que tangibilizam a estratégia e a construção de sistemas complexos.</p><p>Faço a liderança de pessoas de forma inspiracional e também fazendo a execução direta de iniciativas, aplicando IA para otimizar fluxos e escalar a performance dos times.</p>`;
 
 export const achievementsPT = `<ul class="list-disc pl-4 space-y-1 marker:text-red-300">
-<li>Estruturei do zero times de operação de Produto e Design / CoE (Centers of Excellence) em 4 grandes empresas (AB InBev, Unico IDtech, RD e Natura), viabilizando a escala consistente de squads e tribos</li>
-<li>Liderei iniciativas que elevaram a maturidade de Produto de 2,70 para 4,11 e de Design de 2,40 para 4,10 — métrica estratégica e bonificada</li>
+<li>Estruturei do zero times de operação de Produto e Design / CoE (Centers of Excellence) em 4 grandes empresas (AB InBev, Unico IDtech, RD e Natura)</li>
+<li>Liderei iniciativas que elevaram a maturidade de Produto de 2,70 para 4,11 em Produto e Design (métrica estratégica e bônus da área)</li>
 <li>Liderei times que construíram Design Systems utilizados em ambientes produtivos, com adoção exponencial chegando a <strong class="font-bold text-gray-900">249%</strong> de aumento de uso nas interfaces</li>
-<li>Coloquei em prática em 2 empresas um processo de Experience Quality Review, garantindo que <strong class="font-bold text-gray-900">94%</strong> dos problemas de experiência fossem identificados antes de QA, assegurando consistência e tom de voz da marca</li>
-<li>Junto à especialista de Visual Illustration, evoluímos de uma atuação tática para estratégica, tornando a ilustração um asset de marca conectado ao DNA das empresas</li>
+<li>Idealizei em 2 empresas um processo de Experience Quality Review, garantindo que <strong class="font-bold text-gray-900">94%</strong> dos problemas de experiência fossem identificados antes da produção, assegurando consistência e tom de voz da marca</li>
+<li>Orquestração estratégica junto às lideranças, contribuindo para que os assets visuais se tornassem parte do DNA das empresas (Raia &amp; Drogasil / Zé Delivery)</li>
 </ul>`;
 
 export const footerNotePT = "Versão final aprovada em março de 2026.";
@@ -207,3 +207,60 @@ export const sectionsPT = {
   publications: "Publicações",
   certifications: "Certificações"
 };
+
+export type SkillHighlightCard = {
+  source: string;
+  title: string;
+  /** Caminho relativo a `public/` (ex.: logos/foo.png) */
+  logo?: string;
+  /** Iniciais ou atalho quando não há logo */
+  iconFallback?: string;
+};
+
+export type SkillHighlightGroup = {
+  /** Rótulo acima da linha da grelha (ex.: Stack) */
+  rowLabel?: string;
+  cards: SkillHighlightCard[];
+};
+
+export const skillHighlightsPT: SkillHighlightGroup[] = [
+  {
+    cards: [
+      {
+        source: "SECTION IA",
+        title: "Certificações IA's",
+        logo: "logos/certifications/section-ia.png",
+      },
+      {
+        source: "Creative Builders",
+        title: "Figma MCP ao Cursor AI",
+        logo: "logos/certifications/creative-builders.png",
+      },
+      {
+        source: "Conquer",
+        title: "Inteligência Emocional",
+        logo: "logos/certifications/conquer.png",
+      },
+    ],
+  },
+  {
+    rowLabel: "Stack",
+    cards: [
+      {
+        source: "Conquer",
+        title: "Alta Performance",
+        logo: "logos/certifications/conquer.png",
+      },
+      {
+        source: "EBAC",
+        title: "Habilidades de Liderança",
+        logo: "logos/certifications/ebac.png",
+      },
+      {
+        source: "Echos Desirable Futures",
+        title: "Business Design",
+        logo: "logos/certifications/echos.png",
+      },
+    ],
+  },
+];

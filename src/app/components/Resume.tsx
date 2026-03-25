@@ -211,30 +211,36 @@ const Resume = React.forwardRef<HTMLDivElement, ResumeProps>(({
                 <React.Fragment key={index}>
                   {index > 0 && <div className="border-t border-dashed border-gray-300 my-3.5"></div>}
                   <div className="relative pl-0">
-                    <div className="flex items-start gap-2.5 mb-1">
-                      <div className="mt-0.5 min-w-8 h-8 rounded-lg flex items-center justify-center shadow-sm bg-white border border-gray-200">
+                    <div className="mb-1 flex items-start gap-3">
+                      <div className="relative mt-0.5 h-16 w-16 shrink-0 overflow-hidden rounded-2xl bg-neutral-200/40 shadow-sm ring-1 ring-gray-200/90">
                         {exp.logo ? (
-                          <img src={exp.logo} alt={exp.company} className="w-6 h-6 object-contain" />
+                          <img
+                            src={exp.logo}
+                            alt=""
+                            className="absolute inset-0 block h-full w-full object-cover object-center"
+                          />
                         ) : (
-                          <Briefcase className="w-3.5 h-3.5 text-gray-500" />
+                          <div className="flex h-full w-full items-center justify-center bg-gray-50">
+                            <Briefcase className="h-6 w-6 text-gray-400" />
+                          </div>
                         )}
                       </div>
-                      <div className="flex-1">
-                        <h4 className="text-sm text-red-900 leading-tight mb-0.5">{exp.role}</h4>
-                        <div className="font-bold text-orange-600 text-xs mb-0.5">{exp.company}</div>
-                        <div className="flex items-center gap-2 text-[0.6rem] text-gray-500 font-bold uppercase tracking-wide mb-1.5">
+                      <div className="min-w-0 flex-1">
+                        <div className="mb-1 flex flex-wrap items-center gap-x-2 gap-y-0.5 text-[0.6rem] font-bold uppercase tracking-wide text-gray-500">
                           <span className="flex items-center gap-0.5">
-                            <Calendar className="w-2.5 h-2.5" />
+                            <Calendar className="h-2.5 w-2.5" />
                             {exp.period}
                           </span>
                           <span className="flex items-center gap-0.5">
-                            <MapPin className="w-2.5 h-2.5" />
+                            <MapPin className="h-2.5 w-2.5 text-red-800/80" />
                             {exp.location}
                           </span>
                         </div>
+                        <h4 className="mb-0.5 text-sm font-bold leading-tight text-red-900">{exp.role}</h4>
+                        <div className="text-xs font-bold text-orange-600">{exp.company}</div>
                       </div>
                     </div>
-                    <ul className="list-disc ml-10 text-[0.65rem] text-gray-700 leading-relaxed space-y-0.5 marker:text-red-300">
+                    <ul className="ml-[4.75rem] list-disc space-y-0.5 text-[0.65rem] leading-relaxed text-gray-700 marker:text-red-300">
                       {exp.description.map((desc, i) => (
                         <li key={i} dangerouslySetInnerHTML={{ __html: desc }} />
                       ))}
@@ -401,30 +407,36 @@ const Resume = React.forwardRef<HTMLDivElement, ResumeProps>(({
                   <React.Fragment key={index}>
                     {index > 0 && <div className="border-t border-dashed border-gray-300 my-3.5"></div>}
                     <div className="relative pl-0">
-                      <div className="flex items-start gap-2.5 mb-1">
-                        <div className="mt-0.5 min-w-8 h-8 rounded-lg flex items-center justify-center shadow-sm bg-white border border-gray-200">
+                      <div className="mb-1 flex items-start gap-3">
+                        <div className="relative mt-0.5 h-16 w-16 shrink-0 overflow-hidden rounded-2xl bg-neutral-200/40 shadow-sm ring-1 ring-gray-200/90">
                           {exp.logo ? (
-                            <img src={exp.logo} alt={exp.company} className="w-6 h-6 object-contain" />
+                            <img
+                              src={exp.logo}
+                              alt=""
+                              className="absolute inset-0 block h-full w-full object-cover object-center"
+                            />
                           ) : (
-                            <Briefcase className="w-3.5 h-3.5 text-gray-500" />
+                            <div className="flex h-full w-full items-center justify-center bg-gray-50">
+                              <Briefcase className="h-6 w-6 text-gray-400" />
+                            </div>
                           )}
                         </div>
-                        <div className="flex-1">
-                          <h4 className="text-sm text-red-900 leading-tight mb-0.5">{exp.role}</h4>
-                          <div className="font-bold text-orange-600 text-xs mb-0.5">{exp.company}</div>
-                          <div className="flex items-center gap-2 text-[0.6rem] text-gray-500 font-bold uppercase tracking-wide mb-1.5">
+                        <div className="min-w-0 flex-1">
+                          <div className="mb-1 flex flex-wrap items-center gap-x-2 gap-y-0.5 text-[0.6rem] font-bold uppercase tracking-wide text-gray-500">
                             <span className="flex items-center gap-0.5">
                               <Calendar className="w-2.5 h-2.5" />
                               {exp.period}
                             </span>
                             <span className="flex items-center gap-0.5">
-                              <MapPin className="w-2.5 h-2.5" />
+                              <MapPin className="w-2.5 h-2.5 text-red-800/80" />
                               {exp.location}
                             </span>
                           </div>
+                          <h4 className="mb-0.5 text-sm font-bold leading-tight text-red-900">{exp.role}</h4>
+                          <div className="text-xs font-bold text-orange-600">{exp.company}</div>
                         </div>
                       </div>
-                      <ul className="list-disc ml-10 text-[0.65rem] text-gray-700 leading-relaxed space-y-0.5 marker:text-red-300">
+                      <ul className="ml-[4.75rem] list-disc space-y-0.5 text-[0.65rem] leading-relaxed text-gray-700 marker:text-red-300">
                         {exp.description.map((desc, i) => (
                           <li key={i} dangerouslySetInnerHTML={{ __html: desc }} />
                         ))}

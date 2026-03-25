@@ -1,4 +1,5 @@
 // English version of resume data
+import type { SkillHighlightCard, SkillHighlightGroup } from "./resumePT";
 export interface Experience {
   role: string;
   company: string;
@@ -39,19 +40,22 @@ export interface Certification {
   logo?: string;
 }
 
+const experienceLogo = (file: string) => `${import.meta.env.BASE_URL}logos/${file}`;
+
 export const experiencesEN: Experience[] = [
   {
     role: "Sr. Global Head CoE — Center of Excellence (Product & Design)",
     company: "AB InBev",
     period: "Nov 2023 – present",
     location: "São Paulo, Brazil",
+    logo: experienceLogo('ab-inbev.png'),
     description: [
-      "Leads the <strong>Product & Design Center of Excellence</strong> for the Zé Delivery and TaDa brands, structured around <strong>3 strategic pillars</strong>: Consumer Centricity, Quality Experience, and Maturity & Ops. Works cross-functionally with the <strong>DTC (Direct to Consumer)</strong> organization, connecting governance, expertise, and innovation to scale delivery with consistency and global excellence.",
-      "Defined and implemented the CoE operating model, including frameworks, playbooks, and global rituals adopted across the Product & Design leadership.",
-      "Leads upskilling, mentoring, and culture initiatives focused on data- and AI-driven practices for design and product teams.",
-      "Acts as a strategic bridge between business leadership and execution teams, aligning OKRs and delivery consistency.",
-      "Built an experience governance and quality system applied across multiple products and markets.",
-      "Introduced generative AI practices into design and research workflows, accelerating discovery and prototyping cycles."
+      "Leading the creation of the <strong>Product & Design Center of Excellence (CoE)</strong> for Zé Delivery and TaDa, structured around <strong>3 pillars</strong> — Consumer Centricity, Quality Experience, and Maturity & Ops — with cross-functional work across <strong>6 operational fronts</strong>",
+      "Raising Product maturity from <strong>2.70 to 4.11</strong> with a proprietary Maturity Framework focused on Foundation, People, Platform, and Practices",
+      "Implementing AI-powered <strong>Ways of Working</strong>, making Upstream measurable and delivering executive views on quality and completeness",
+      "Designing the <strong>Experience Quality Review</strong> process to ensure quality of Content, Design System, and Illustration before production",
+      "Co-creating with the team the <strong>Content IA HUB</strong> — an AI platform for content review with brand voice — resulting in <strong>94%</strong> of adjustments before production",
+      "Building the <strong>100% AI-powered Research Platform</strong> as a centralized insight repository for teams"
     ]
   },
   {
@@ -59,6 +63,7 @@ export const experiencesEN: Experience[] = [
     company: "Unico IDtech",
     period: "Feb 2022 – Nov 2023",
     location: "São Paulo, Brazil",
+    logo: experienceLogo('unico.png'),
     description: [
       "Built and led <strong>Design Ops</strong> at Unico from scratch, structuring cross-design workstreams that improved team consistency and efficiency. Rolled out Accessibility, Content Design, Service Design, Research Ops, and Design System at one of Brazil’s largest identity-tech companies.",
       "Structured the cross-product team and defined a Design Ops strategy aligned with business impact.",
@@ -75,6 +80,7 @@ export const experiencesEN: Experience[] = [
     company: "RD (Raia Drogasil)",
     period: "Jan 2021 – Feb 2022",
     location: "São Paulo, Brazil",
+    logo: experienceLogo('rd.png'),
     description: [
       "Built and led <strong>Design Ops</strong> at RD, structuring the team and core disciplines to raise design maturity at one of Brazil’s largest pharmacy retail networks.",
       "Structured and led the Design Ops team with a strategic, cross-functional mandate.",
@@ -89,6 +95,7 @@ export const experiencesEN: Experience[] = [
     company: "Natura",
     period: "Jan 2015 – Dec 2020",
     location: "São Paulo, Brazil (6 years)",
+    logo: experienceLogo('natura.png'),
     description: [
       "From <strong>Designer</strong> specializing in heuristic analysis to <strong>Design Ops</strong> leadership and <strong>Design System</strong> management at Latin America’s largest cosmetics company.",
       "<strong>Design Ops Lead & PM | Lead Design System (2018 – 2020)</strong>",
@@ -102,19 +109,11 @@ export const experiencesEN: Experience[] = [
     ]
   },
   {
-    role: "Digital Projects Consultant",
-    company: "Concrete Solutions / Natura",
-    period: "Dec 2013 – Jan 2015",
-    location: "São Paulo, Brazil",
-    description: [
-      "Consulting on digital marketing projects."
-    ]
-  },
-  {
     role: "Design Lead",
     company: "Agência Pipeline",
     period: "Jan 2013 – Dec 2013",
     location: "São Paulo, Brazil",
+    logo: experienceLogo('pipeline.png'),
     description: [
       "Led digital projects, team management, and creative direction."
     ]
@@ -124,6 +123,7 @@ export const experiencesEN: Experience[] = [
     company: "Iguana Sports",
     period: "Nov 2011 – Jan 2013",
     location: "São Paulo, Brazil",
+    logo: experienceLogo('iguana.png'),
     description: [
       "Information architecture, interface design, and digital project planning for the company’s sports portal ecosystem."
     ]
@@ -133,6 +133,7 @@ export const experiencesEN: Experience[] = [
     company: "Vivo (Telefônica Brasil)",
     period: "Dec 1998 – Jan 2011",
     location: "São Paulo, Brazil",
+    logo: experienceLogo('vivo.png'),
     description: [
       "12 years managing digital channel projects, implementing corporate tools (CMS, SEO, metrics), and information architecture for corporate portals."
     ]
@@ -175,14 +176,14 @@ export const certificationsEN: Certification[] = [
   { title: "Nonviolent Communication (NVC)" }
 ];
 
-export const summaryEN = `<p>Throughout my career I have led initiatives with a clear purpose: <strong class="font-bold text-gray-900">turning challenges into reality</strong>. In the four companies where I have worked — <strong class="font-bold text-gray-900">AB InBev, Unico IDtech, RD (Raia Drogasil), and Natura</strong> — I built cross-tribe teams and Product & Design ecosystems with <strong class="font-bold text-gray-900">Maturity Framework, Ways of Working, Experience Quality Review, and AI hubs</strong>, connecting business strategy to execution and raising delivery quality in measurable ways. I combine <strong class="font-bold text-gray-900">people leadership</strong> with <strong class="font-bold text-gray-900">hands-on execution</strong>, using AI to optimize flows and scale team performance — passionate about building what does not yet exist and turning it into real results.</p>`;
+export const summaryEN = `<p>I lead and develop initiatives with a clear purpose: <strong class="font-bold text-gray-900">turning challenges into reality</strong>!</p><p>In the four companies where I have worked — <strong class="font-bold text-gray-900">AB InBev, Unico IDtech, RD (Raia Drogasil), and Natura</strong> — I built cross-tribe teams and Product & Design ecosystems with <strong class="font-bold text-gray-900">Maturity Framework, Ways of Working, Experience Quality Review, and AI hubs</strong>, among other initiatives that turn strategy into building complex systems.</p><p>I lead people in an inspirational way while also driving hands-on execution of initiatives, applying AI to optimize flows and scale team performance.</p>`;
 
 export const achievementsEN = `<ul class="list-disc pl-4 space-y-1 marker:text-red-300">
-<li>Built Product and Design operations / CoE (Centers of Excellence) teams from scratch at four major companies (AB InBev, Unico IDtech, RD, and Natura), enabling consistent scaling of squads and tribes</li>
-<li>Led initiatives that raised Product maturity from 2.70 to 4.11 and Design from 2.40 to 4.10 — a strategic, incentivized metric</li>
+<li>Built Product and Design operations / CoE (Centers of Excellence) teams from scratch at four major companies (AB InBev, Unico IDtech, RD, and Natura)</li>
+<li>Led initiatives that raised Product maturity from 2.70 to 4.11 in Product &amp; Design (strategic metric and area bonus)</li>
 <li>Led teams that built Design Systems used in production, with adoption growth of up to <strong class="font-bold text-gray-900">249%</strong> in interfaces</li>
-<li>Implemented Experience Quality Review at two companies so that <strong class="font-bold text-gray-900">94%</strong> of experience issues were caught before QA, protecting brand consistency and voice</li>
-<li>With the Visual Illustration specialist, evolved illustration from tactical to strategic work, making it a brand asset aligned with company DNA</li>
+<li>Designed an Experience Quality Review process at two companies, ensuring <strong class="font-bold text-gray-900">94%</strong> of experience issues were identified before production, protecting brand consistency and voice</li>
+<li>Strategic orchestration with leadership, helping visual assets become part of company DNA (Raia &amp; Drogasil / Zé Delivery)</li>
 </ul>`;
 
 export const footerNoteEN = "Final version approved March 2026.";
@@ -207,3 +208,45 @@ export const sectionsEN = {
   publications: "PUBLICATIONS",
   certifications: "CERTIFICATIONS"
 };
+
+export const skillHighlightsEN: SkillHighlightGroup[] = [
+  {
+    cards: [
+      {
+        source: "SECTION IA",
+        title: "AI certifications",
+        logo: "logos/certifications/section-ia.png",
+      },
+      {
+        source: "Creative Builders",
+        title: "Figma MCP to Cursor AI",
+        logo: "logos/certifications/creative-builders.png",
+      },
+      {
+        source: "Conquer",
+        title: "Emotional intelligence",
+        logo: "logos/certifications/conquer.png",
+      },
+    ],
+  },
+  {
+    rowLabel: "Stack",
+    cards: [
+      {
+        source: "Conquer",
+        title: "High performance",
+        logo: "logos/certifications/conquer.png",
+      },
+      {
+        source: "EBAC",
+        title: "Leadership skills",
+        logo: "logos/certifications/ebac.png",
+      },
+      {
+        source: "Echos Desirable Futures",
+        title: "Business design",
+        logo: "logos/certifications/echos.png",
+      },
+    ],
+  },
+];
