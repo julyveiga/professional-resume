@@ -16,6 +16,8 @@ import {
   ShieldCheck,
   Palette,
   Building2,
+  ArrowUpRight,
+  TrendingUpIcon,
 } from 'lucide-react';
 import { useAppLanguage } from '../context/AppLanguageContext';
 
@@ -89,6 +91,16 @@ type AchievementCard = {
   bodyHtml: string;
   icon: React.ReactNode;
   iconWrapperClassName: string;
+};
+
+type CasePreviewCard = {
+  badge: string;
+  title: string;
+  description: string;
+  tags: string[];
+  impactLabel: string;
+  impactValue: string;
+  to?: string;
 };
 
 function stripHtmlToText(html: string): string {
@@ -226,6 +238,113 @@ function AchievementsCarousel({ achievementsHtml }: { achievementsHtml: string }
   );
 }
 
+function CasesCarousel({
+  cards,
+  viewLabel,
+  comingSoonLabel,
+}: {
+  cards: CasePreviewCard[];
+  viewLabel: string;
+  comingSoonLabel: string;
+}) {
+  const [emblaRef, emblaApi] = useEmblaCarousel({ align: 'start', loop: false, skipSnaps: false });
+  const [canPrev, setCanPrev] = useState(false);
+  const [canNext, setCanNext] = useState(false);
+
+  const update = useCallback(() => {
+    if (!emblaApi) return;
+    setCanPrev(emblaApi.canScrollPrev());
+    setCanNext(emblaApi.canScrollNext());
+  }, [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    update();
+    emblaApi.on('select', update);
+    emblaApi.on('reInit', update);
+    return () => {
+      emblaApi.off('select', update);
+      emblaApi.off('reInit', update);
+    };
+  }, [emblaApi, update]);
+
+  return (
+    <div className="relative">
+      <div className="overflow-hidden" ref={emblaRef}>
+        <div className="flex gap-4">
+          {cards.map((card, idx) => (
+            <div key={idx} className="flex-[0_0_92%] sm:flex-[0_0_84%] lg:flex-[0_0_78%]">
+              <article className="overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm">
+                <div className="p-5 md:p-6">
+                  <div className="mb-3 flex items-start justify-between gap-3">
+                    <span className="inline-flex rounded-full bg-[#f3e8ff] px-2.5 py-1 text-[0.65rem] font-semibold uppercase tracking-wide text-[#6b21a8]">
+                      {card.badge}
+                    </span>
+                    {card.to ? (
+                      <Link
+                        to={card.to}
+                        className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-white text-[#7c3aed] ring-1 ring-gray-200 transition hover:bg-gray-50"
+                        aria-label={viewLabel}
+                      >
+                        <ArrowUpRight className="h-4 w-4" />
+                      </Link>
+                    ) : (
+                      <span className="rounded-full bg-gray-100 px-2.5 py-1 text-[0.65rem] font-semibold uppercase tracking-wide text-gray-500">
+                        {comingSoonLabel}
+                      </span>
+                    )}
+                  </div>
+
+                  <h3 className="text-2xl font-extrabold leading-tight text-gray-900">{card.title}</h3>
+                  <p className="mt-4 text-base leading-relaxed text-gray-600">{card.description}</p>
+
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {card.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-600"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="mt-5 rounded-xl border border-emerald-100 bg-emerald-50 p-4">
+                    <p className="flex items-center gap-2 text-[0.7rem] font-bold uppercase tracking-wide text-emerald-700">
+                      <TrendingUpIcon className="h-3.5 w-3.5" />
+                      {card.impactLabel}
+                    </p>
+                    <p className="mt-1 text-xl font-extrabold text-emerald-800">{card.impactValue}</p>
+                  </div>
+                </div>
+              </article>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <button
+        type="button"
+        onClick={() => emblaApi?.scrollPrev()}
+        disabled={!canPrev}
+        className="absolute -left-3 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 shadow-sm transition disabled:cursor-not-allowed disabled:opacity-40"
+        aria-label="Anterior"
+      >
+        ‹
+      </button>
+      <button
+        type="button"
+        onClick={() => emblaApi?.scrollNext()}
+        disabled={!canNext}
+        className="absolute -right-3 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 shadow-sm transition disabled:cursor-not-allowed disabled:opacity-40"
+        aria-label="Próximo"
+      >
+        ›
+      </button>
+    </div>
+  );
+}
+
 const hardSkillsTagsShared = [
   'Product Ops',
   'Design Ops',
@@ -257,6 +376,39 @@ const labels = {
     hardSkillsTitle: 'Hard Skills',
     phonePlaceholder: 'Telefone sob consulta',
     projectsTitle: 'Projetos recentes',
+    casesTitle: 'Cases',
+    casesView: 'Ver case',
+    casesComingSoon: 'Em breve',
+    casesCards: [
+      {
+        badge: 'Case Study',
+        title: 'Estruturação Center of Excellence (CoE)',
+        description:
+          'O CoE se tornou referência interna e modelo replicável, influenciando a criação de outras estruturas na companhia.',
+        tags: ['CoE', 'Governança', 'Maturity Framework', 'Quality Experience'],
+        impactLabel: 'Impacto principal',
+        impactValue: 'Maturidade de Produto: 2.7 → 4.11',
+        to: '/projetos/coe-global',
+      },
+      {
+        badge: 'Case Study',
+        title: 'Evolução de Design Operations',
+        description:
+          'Exemplo de card para próximos cases com foco em escala de design, rituais e eficiência operacional.',
+        tags: ['Design Ops', 'Escala', 'Rituais', 'Performance'],
+        impactLabel: 'Impacto principal',
+        impactValue: 'Redução de retrabalho: +35%',
+      },
+      {
+        badge: 'Case Study',
+        title: 'Framework de Qualidade em Produto',
+        description:
+          'Exemplo de card para próximos cases orientados por qualidade de experiência e padronização de decisões.',
+        tags: ['Quality', 'Produto', 'Governança', 'Métricas'],
+        impactLabel: 'Impacto principal',
+        impactValue: 'Aumento de consistência: +48%',
+      },
+    ] as CasePreviewCard[],
     projectA: {
       title: 'Design System em escala',
       desc: 'Marcação de exemplo — descreva aqui um projeto destacado com impacto em produto e negócio.',
@@ -281,6 +433,39 @@ const labels = {
     hardSkillsTitle: 'Hard Skills',
     phonePlaceholder: 'Phone on request',
     projectsTitle: 'Latest projects',
+    casesTitle: 'Cases',
+    casesView: 'View case',
+    casesComingSoon: 'Coming soon',
+    casesCards: [
+      {
+        badge: 'Case Study',
+        title: 'Center of Excellence (CoE) Structuring',
+        description:
+          'The CoE became an internal benchmark and a replicable model, influencing other structures across the company.',
+        tags: ['CoE', 'Governance', 'Maturity Framework', 'Quality Experience'],
+        impactLabel: 'Main impact',
+        impactValue: 'Product maturity: 2.7 → 4.11',
+        to: '/projetos/coe-global',
+      },
+      {
+        badge: 'Case Study',
+        title: 'Design Operations Evolution',
+        description:
+          'Example card for upcoming cases focused on design scale, rituals, and operational efficiency.',
+        tags: ['Design Ops', 'Scale', 'Rituals', 'Performance'],
+        impactLabel: 'Main impact',
+        impactValue: 'Rework reduction: +35%',
+      },
+      {
+        badge: 'Case Study',
+        title: 'Product Quality Framework',
+        description:
+          'Example card for upcoming cases driven by experience quality and decision consistency.',
+        tags: ['Quality', 'Product', 'Governance', 'Metrics'],
+        impactLabel: 'Main impact',
+        impactValue: 'Consistency increase: +48%',
+      },
+    ] as CasePreviewCard[],
     projectA: {
       title: 'Design system at scale',
       desc: 'Placeholder — describe a flagship project with product and business impact.',
@@ -649,6 +834,17 @@ export default function ResumeModernPage() {
           </section>
 
           <section className="print:hidden">
+            <div className="mb-4">
+              <h2 className="text-lg font-bold text-gray-900">{L.casesTitle}</h2>
+            </div>
+            <CasesCarousel
+              cards={L.casesCards}
+              viewLabel={L.casesView}
+              comingSoonLabel={L.casesComingSoon}
+            />
+          </section>
+
+          <section className="mt-10 print:hidden">
             <div className="mb-4">
               <h2 className="text-lg font-bold text-gray-900">{L.projectsTitle}</h2>
             </div>
