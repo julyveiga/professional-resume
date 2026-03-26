@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import { Link } from 'react-router';
 import useEmblaCarousel from 'embla-carousel-react';
 import {
   Mail,
@@ -175,11 +176,14 @@ function AchievementsCarousel({ achievementsHtml }: { achievementsHtml: string }
   if (cards.length === 0) return null;
 
   return (
-    <div className="relative">
-      <div className="overflow-hidden" ref={emblaRef}>
-        <div className="flex gap-4">
+    <div className="relative achievements-carousel">
+      <div className="overflow-hidden achievements-carousel__viewport" ref={emblaRef}>
+        <div className="flex gap-4 achievements-carousel__container">
           {cards.map((card, idx) => (
-            <div key={idx} className="flex-[0_0_88%] sm:flex-[0_0_48%] lg:flex-[0_0_46%]">
+            <div
+              key={idx}
+              className="flex-[0_0_88%] sm:flex-[0_0_48%] lg:flex-[0_0_46%] achievements-carousel__slide"
+            >
               <article className="h-full rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
                 <div className="mb-4 flex items-center gap-3">
                   <div
@@ -204,7 +208,7 @@ function AchievementsCarousel({ achievementsHtml }: { achievementsHtml: string }
         type="button"
         onClick={() => emblaApi?.scrollPrev()}
         disabled={!canPrev}
-        className="absolute -left-3 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 shadow-sm transition disabled:cursor-not-allowed disabled:opacity-40"
+        className="absolute -left-3 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 shadow-sm transition disabled:cursor-not-allowed disabled:opacity-40 print:hidden"
         aria-label="Anterior"
       >
         ‹
@@ -213,7 +217,7 @@ function AchievementsCarousel({ achievementsHtml }: { achievementsHtml: string }
         type="button"
         onClick={() => emblaApi?.scrollNext()}
         disabled={!canNext}
-        className="absolute -right-3 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 shadow-sm transition disabled:cursor-not-allowed disabled:opacity-40"
+        className="absolute -right-3 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 shadow-sm transition disabled:cursor-not-allowed disabled:opacity-40 print:hidden"
         aria-label="Próximo"
       >
         ›
@@ -222,10 +226,33 @@ function AchievementsCarousel({ achievementsHtml }: { achievementsHtml: string }
   );
 }
 
+const hardSkillsTagsShared = [
+  'Product Ops',
+  'Design Ops',
+  'AI-Driven Operations',
+  'Research Ops',
+  'Product Strategy',
+  'Governance',
+  'Organizational Scaling',
+  'Portfolio Management',
+  'Design Systems',
+] as const;
+
+const softSkillsTagsShared = [
+  'Strategic Thinking',
+  'Analytical Thinking',
+  'Problem Solving',
+  'Results Orientation',
+  'Resilience',
+  'Inspirational Leadership',
+  'Stakeholder Management',
+  'Cross-functional Leadership',
+] as const;
+
 const labels = {
   pt: {
     sidebarMotto:
-      'Apaixonada por construir o que ainda não existe e transformar isso em resultado real.',
+      'Apaixonada por resolver problemas complexos em soluções com resultados reais.',
     softSkillsTitle: 'Soft Skills',
     hardSkillsTitle: 'Hard Skills',
     phonePlaceholder: 'Telefone sob consulta',
@@ -239,34 +266,16 @@ const labels = {
       desc: 'Marcação de exemplo — hub de IA, rituais e governança alinhados a OKRs.',
     },
     projectLink: 'Ver projeto',
-    hardSkillsTags: [
-      'IA generativa',
-      'Gestão de stakeholders',
-      'Gestão de portfólio',
-      'Design organizacional',
-      'Estratégia de negócios',
-      'Estratégia de produto',
-      'Design Ops',
-      'Product Ops',
-      'Design System',
-      'Research Ops',
-      'Content Design',
-      'Service Design',
-    ],
-    softSkillsTags: [
-      'CrossFunctionalLeadership',
-      'Resiliência',
-      'Pensamento Estratégico',
-      'Proatividade',
-      'OrientaçãoAResultados',
-      'Pensamento Analítico',
-      'Liderança Inspiracional',
-      'Problem Solving',
-    ],
+    exportPdf: 'Exportar PDF',
+    englishVersion: 'Versão em inglês',
+    portugueseVersion: 'Versão em português',
+    footerClassic: 'Versão clássica',
+    hardSkillsTags: hardSkillsTagsShared,
+    softSkillsTags: softSkillsTagsShared,
   },
   en: {
     sidebarMotto:
-      'Passionate about building what does not yet exist and turning it into real results.',
+      'Passionate about turning complex problems into solutions with real results.',
     softSkillsTitle: 'Soft Skills',
     hardSkillsTitle: 'Hard Skills',
     phonePlaceholder: 'Phone on request',
@@ -280,36 +289,42 @@ const labels = {
       desc: 'Placeholder — AI hub, rituals, and governance aligned with OKRs.',
     },
     projectLink: 'View project',
-    hardSkillsTags: [
-      'Generative AI',
-      'Stakeholder Management',
-      'Portfolio Management',
-      'Organizational Design',
-      'Business Strategy',
-      'Product Strategy',
-      'Design Ops',
-      'Product Ops',
-      'Design System',
-      'Research Ops',
-      'Content Design',
-      'Service Design',
-    ],
-    softSkillsTags: [
-      'CrossFunctionalLeadership',
-      'Resiliência',
-      'Pensamento Estratégico',
-      'Proatividade',
-      'OrientaçãoAResultados',
-      'Pensamento Analítico',
-      'Liderança Inspiracional',
-      'Problem Solving',
-    ],
+    exportPdf: 'Export PDF',
+    englishVersion: 'English version',
+    portugueseVersion: 'Portuguese version',
+    footerClassic: 'Classic version',
+    hardSkillsTags: hardSkillsTagsShared,
+    softSkillsTags: softSkillsTagsShared,
   },
 } as const;
 
 export default function ResumeModernPage() {
-  const { language } = useAppLanguage();
+  const { language, setLanguage } = useAppLanguage();
   const [openExpIndex, setOpenExpIndex] = useState<number | null>(0);
+  const [isPrinting, setIsPrinting] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    const mql = window.matchMedia?.('print');
+    const onMqlChange = (e: MediaQueryListEvent) => setIsPrinting(e.matches);
+    const onBeforePrint = () => setIsPrinting(true);
+    const onAfterPrint = () => setIsPrinting(false);
+
+    window.addEventListener('beforeprint', onBeforePrint);
+    window.addEventListener('afterprint', onAfterPrint);
+
+    if (mql) {
+      setIsPrinting(mql.matches);
+      mql.addEventListener('change', onMqlChange);
+    }
+
+    return () => {
+      window.removeEventListener('beforeprint', onBeforePrint);
+      window.removeEventListener('afterprint', onAfterPrint);
+      mql?.removeEventListener('change', onMqlChange);
+    };
+  }, []);
 
   const L = labels[language];
 
@@ -340,10 +355,26 @@ export default function ResumeModernPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#f0f2f5] pb-12 pt-24">
-      <div className="mx-auto flex max-w-6xl flex-col gap-6 px-4 lg:flex-row lg:items-start lg:gap-8">
+    <div className="resume-modern min-h-screen bg-[#f0f2f5] pb-12 pt-10">
+      <div className="resume-modern__layout mx-auto flex max-w-6xl flex-col gap-6 px-4 lg:flex-row lg:items-start lg:gap-8">
         {/* Sidebar */}
-        <aside className="w-full shrink-0 rounded-2xl bg-[#F8F9FA] p-6 shadow-sm lg:sticky lg:top-24 lg:w-[min(100%,320px)]">
+        <aside className="w-full shrink-0 rounded-2xl bg-[#F8F9FA] p-6 shadow-sm lg:sticky lg:top-8 lg:w-[min(100%,320px)]">
+          <div className="mb-4 flex overflow-hidden rounded-xl border border-gray-200 bg-gray-100/80 p-1 shadow-sm print:hidden">
+            <button
+              type="button"
+              onClick={() => window.print()}
+              className="flex-1 rounded-lg px-2 py-2 text-center text-xs font-semibold text-gray-900 transition-colors hover:bg-white sm:text-sm"
+            >
+              {L.exportPdf}
+            </button>
+            <button
+              type="button"
+              onClick={() => setLanguage(language === 'pt' ? 'en' : 'pt')}
+              className="flex-1 rounded-lg px-2 py-2 text-center text-xs font-semibold text-gray-900 transition-colors hover:bg-white sm:text-sm"
+            >
+              {language === 'pt' ? L.englishVersion : L.portugueseVersion}
+            </button>
+          </div>
           <div className="mx-auto mb-4 h-28 w-28 overflow-hidden rounded-full bg-gray-200 shadow-md ring-2 ring-white">
             <img
               src={`${import.meta.env.BASE_URL}juliana-veiga-avatar.png`}
@@ -477,7 +508,7 @@ export default function ResumeModernPage() {
 
             <div className="space-y-6">
               {data.experiences.map((exp, index) => {
-                const isOpen = openExpIndex === index;
+                const isOpen = isPrinting ? true : openExpIndex === index;
                 const showBullets = isOpen;
 
                 return (
@@ -485,8 +516,8 @@ export default function ResumeModernPage() {
                     <div className="overflow-hidden rounded-xl border border-gray-100 bg-white shadow-sm">
                       <button
                         type="button"
-                        onClick={() => toggleExp(index)}
-                        className="flex w-full cursor-pointer items-start gap-3 p-4 text-left transition-colors hover:bg-gray-50/80"
+                        onClick={() => (!isPrinting ? toggleExp(index) : undefined)}
+                        className="flex w-full cursor-pointer items-start gap-3 p-4 text-left transition-colors hover:bg-gray-50/80 print:cursor-default print:hover:bg-transparent"
                         aria-expanded={isOpen}
                       >
                         <div className="relative mt-0.5 h-16 w-16 shrink-0 overflow-hidden rounded-2xl bg-neutral-200/40 shadow-sm ring-1 ring-gray-200/90">
@@ -516,12 +547,29 @@ export default function ResumeModernPage() {
                           <h3 className="text-base font-bold text-gray-900">{exp.role}</h3>
                           <p className="text-sm font-semibold text-orange-600">{exp.company}</p>
                         </div>
-                        <span className="shrink-0 text-gray-400">
+                        <span className="shrink-0 text-gray-400 print:hidden">
                           {isOpen ? <ChevronUp className="h-5 w-5" /> : <ChevronDown className="h-5 w-5" />}
                         </span>
                       </button>
-                      {showBullets ? (
-                        <ul className="border-t border-gray-100 px-4 pb-4 pt-0">
+                      <div
+                        className={[
+                          'border-t border-gray-100',
+                          showBullets ? '' : 'hidden',
+                          'print:!block',
+                        ].join(' ')}
+                      >
+                        {exp.intro ? (
+                          <p className="experience-intro px-4 pb-2 pt-4 text-[0.8rem] leading-relaxed text-gray-700">
+                            {exp.intro}
+                          </p>
+                        ) : null}
+                        <ul
+                          className={[
+                            'experience-details px-4 pb-4',
+                            exp.intro ? 'pt-0' : 'pt-4',
+                            'list-disc text-[0.8rem] leading-relaxed text-gray-700 marker:text-gray-400',
+                          ].join(' ')}
+                        >
                           {exp.description.map((line, i) => (
                             <li
                               key={i}
@@ -530,7 +578,7 @@ export default function ResumeModernPage() {
                             />
                           ))}
                         </ul>
-                      ) : null}
+                      </div>
                     </div>
                   </div>
                 );
@@ -538,14 +586,14 @@ export default function ResumeModernPage() {
             </div>
           </section>
 
-          <section className="mb-10">
+          <section className="mb-10 print:hidden">
             <div className="mb-3">
               <h2 className="text-lg font-bold text-gray-900">{data.sections.achievements}</h2>
             </div>
             <AchievementsCarousel achievementsHtml={data.achievements} />
           </section>
 
-          <section>
+          <section className="print:hidden">
             <div className="mb-4">
               <h2 className="text-lg font-bold text-gray-900">{L.projectsTitle}</h2>
             </div>
@@ -587,7 +635,7 @@ export default function ResumeModernPage() {
             </div>
           </section>
 
-          <section className="mt-12">
+          <section className="mt-12 print:hidden">
             <div className="mb-4">
               <h2 className="text-lg font-bold text-gray-900">{data.sections.certifications}</h2>
             </div>
@@ -610,6 +658,54 @@ export default function ResumeModernPage() {
           </section>
         </main>
       </div>
+
+      {/* Print-only page 3 (full width) */}
+      <div className="resume-modern__print-page3 mx-auto hidden max-w-6xl px-4 print:block">
+        <section className="mb-10">
+          <div className="mb-3">
+            <h2 className="text-lg font-bold text-gray-900">{data.sections.achievements}</h2>
+          </div>
+          <AchievementsCarousel achievementsHtml={data.achievements} />
+        </section>
+
+        <section>
+          <div className="mb-4">
+            <h2 className="text-lg font-bold text-gray-900">{data.sections.certifications}</h2>
+          </div>
+          {(() => {
+            const allCards = data.skillHighlights.flatMap((g) => g.cards);
+            const idxEI = allCards.findIndex((c) =>
+              /inteligência emocional|emotional intelligence/i.test(`${c.title} ${c.source}`)
+            );
+            const idxBusiness = allCards.findIndex((c) =>
+              /business design/i.test(`${c.title} ${c.source}`)
+            );
+
+            if (idxEI >= 0 && idxBusiness >= 0 && idxBusiness !== idxEI + 1) {
+              const business = allCards[idxBusiness];
+              allCards.splice(idxBusiness, 1);
+              allCards.splice(idxEI + 1, 0, business);
+            }
+
+            return (
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 print:grid-cols-2">
+                {allCards.map((card, i) => (
+                  <SkillHighlightCardView key={`${card.source}-${card.title}-${i}`} card={card} />
+                ))}
+              </div>
+            );
+          })()}
+        </section>
+      </div>
+
+      <footer className="mx-auto max-w-6xl px-4 pb-8 pt-6 text-center print:hidden">
+        <Link
+          to="/classica"
+          className="text-sm font-medium text-gray-600 underline decoration-gray-300 underline-offset-2 transition-colors hover:text-gray-900"
+        >
+          {L.footerClassic}
+        </Link>
+      </footer>
     </div>
   );
 }

@@ -25,6 +25,7 @@ interface Experience {
   company: string;
   period: string;
   location: string;
+  intro?: string;
   description: string[];
   logo?: string;
 }
@@ -240,6 +241,11 @@ const Resume = React.forwardRef<HTMLDivElement, ResumeProps>(({
                         <div className="text-xs font-bold text-orange-600">{exp.company}</div>
                       </div>
                     </div>
+                    {exp.intro ? (
+                      <p className="mb-2 ml-[4.75rem] mt-3 max-w-none text-[0.65rem] leading-relaxed text-gray-700">
+                        {exp.intro}
+                      </p>
+                    ) : null}
                     <ul className="ml-[4.75rem] list-disc space-y-0.5 text-[0.65rem] leading-relaxed text-gray-700 marker:text-red-300">
                       {exp.description.map((desc, i) => (
                         <li key={i} dangerouslySetInnerHTML={{ __html: desc }} />
@@ -436,6 +442,11 @@ const Resume = React.forwardRef<HTMLDivElement, ResumeProps>(({
                           <div className="text-xs font-bold text-orange-600">{exp.company}</div>
                         </div>
                       </div>
+                      {exp.intro ? (
+                        <p className="mb-2 ml-[4.75rem] mt-3 max-w-none text-[0.65rem] leading-relaxed text-gray-700">
+                          {exp.intro}
+                        </p>
+                      ) : null}
                       <ul className="ml-[4.75rem] list-disc space-y-0.5 text-[0.65rem] leading-relaxed text-gray-700 marker:text-red-300">
                         {exp.description.map((desc, i) => (
                           <li key={i} dangerouslySetInnerHTML={{ __html: desc }} />

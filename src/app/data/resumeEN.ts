@@ -5,6 +5,7 @@ export interface Experience {
   company: string;
   period: string;
   location: string;
+  intro?: string;
   description: string[];
   logo?: string;
 }
@@ -49,13 +50,16 @@ export const experiencesEN: Experience[] = [
     period: "Nov 2023 – present",
     location: "São Paulo, Brazil",
     logo: experienceLogo('ab-inbev.png'),
+    intro:
+      "I led the creation and global expansion of the Product & Design Center of Excellence for Zé Delivery and TaDa, establishing a scalable operating model that connects strategy, execution, and experience quality.",
     description: [
-      "Leading the creation of the <strong>Product & Design Center of Excellence (CoE)</strong> for Zé Delivery and TaDa, structured around <strong>3 pillars</strong> — Consumer Centricity, Quality Experience, and Maturity & Ops — with cross-functional work across <strong>6 operational fronts</strong>",
-      "Raising Product maturity from <strong>2.70 to 4.11</strong> with a proprietary Maturity Framework focused on Foundation, People, Platform, and Practices",
-      "Implementing AI-powered <strong>Ways of Working</strong>, making Upstream measurable and delivering executive views on quality and completeness",
-      "Designing the <strong>Experience Quality Review</strong> process to ensure quality of Content, Design System, and Illustration before production",
-      "Co-creating with the team the <strong>Content IA HUB</strong> — an AI platform for content review with brand voice — resulting in <strong>94%</strong> of adjustments before production",
-      "Building the <strong>100% AI-powered Research Platform</strong> as a centralized insight repository for teams"
+      "I structured the CoE from scratch, based on the pillars Consumer Centricity, Quality Experience, and Maturity & Ops",
+      "I raised Product maturity from 2.7 to 4.11 through a proprietary Maturity Framework",
+      "I designed and implemented Ways of Working with AI, making upstream measurable with executive visibility",
+      "I created the Experience Quality Review framework, resolving 94% of issues before production",
+      "I led the creation of AI hubs (Content and Visual), ensuring interface consistency aligned with the brand",
+      "I developed an AI-powered research platform, centralizing insights for teams",
+      "I acted as a strategic partner to leadership, influencing decisions at a global level"
     ]
   },
   {
@@ -64,15 +68,14 @@ export const experiencesEN: Experience[] = [
     period: "Feb 2022 – Nov 2023",
     location: "São Paulo, Brazil",
     logo: experienceLogo('unico.png'),
+    intro:
+      "I structured and scaled the Design Operations function at one of Brazil’s leading identity-tech companies, driving consistency, efficiency, and maturity.",
     description: [
-      "Built and led <strong>Design Ops</strong> at Unico from scratch, structuring cross-design workstreams that improved team consistency and efficiency. Rolled out Accessibility, Content Design, Service Design, Research Ops, and Design System at one of Brazil’s largest identity-tech companies.",
-      "Structured the cross-product team and defined a Design Ops strategy aligned with business impact.",
-      "Created an <strong>Experience Quality Review</strong> process with the team, ensuring interface experience quality before production.",
-      "Led Design System implementation and evolution, building adoption culture and scalability.",
-      "Built dashboards to measure design impact on the product, supporting operational decision-making.",
-      "Drove quarterly and annual strategic planning, connecting the design vision with company goals.",
-      "Implemented Accessibility practices with specialists, ensuring <strong>LGPD</strong> compliance across digital products.",
-      "<strong>Stack & methods:</strong> Figma · Data Studio · Notion · Design System · Research Ops · Accessibility (WCAG) · LGPD"
+      "I structured the Design Ops team and its cross-tribe scope",
+      "I implemented disciplines such as Accessibility, Content Design, Service Design, Research Ops, and Design System",
+      "I introduced the Experience Quality Review process to raise pre-production quality",
+      "I led the evolution and adoption of the Design System",
+      "I developed design performance dashboards to support decision-making"
     ]
   },
   {
@@ -81,13 +84,13 @@ export const experiencesEN: Experience[] = [
     period: "Jan 2021 – Feb 2022",
     location: "São Paulo, Brazil",
     logo: experienceLogo('rd.png'),
+    intro:
+      "I led the creation of the Design Operations area and the structuring of governance at one of the country’s largest retail companies.",
     description: [
-      "Built and led <strong>Design Ops</strong> at RD, structuring the team and core disciplines to raise design maturity at one of Brazil’s largest pharmacy retail networks.",
-      "Structured and led the Design Ops team with a strategic, cross-functional mandate.",
-      "Acted as PM for the <strong>Design System</strong> squad, defining evolution strategy and adoption culture.",
-      "Created standards for rituals and documentation, strengthening design maturity.",
-      "Reduced inconsistencies between Product and Design teams through cross-functional initiatives.",
-      "<strong>Stack & methods:</strong> Figma · Design System · Service Design · Research Ops · Accessibility · LGPD"
+      "I structured and led the Design Ops team",
+      "I also acted as Product Manager for the Design System squad",
+      "I standardized rituals, processes, and documentation as a reference for the tribes",
+      "I reduced inconsistencies between Product and Design through cross-functional initiatives"
     ]
   },
   {
@@ -96,16 +99,13 @@ export const experiencesEN: Experience[] = [
     period: "Dec 2013 – Dec 2020",
     location: "São Paulo, Brazil (6 years)",
     logo: experienceLogo('natura.png'),
+    intro:
+      "I worked on the evolution and scaling of Design Operations and Design Systems for Natura, Avon, and The Body Shop.",
     description: [
-      "From <strong>Designer</strong> specializing in heuristic analysis to <strong>Design Ops</strong> leadership and <strong>Design System</strong> management at Latin America’s largest cosmetics company.",
-      "<strong>Design Ops Lead & PM | Lead Design System (2018 – 2020)</strong>",
-      "Coordinated Design Ops activities and acted as PO for the Design System squad.",
-      "Participated actively in strategic definitions, connecting design and product.",
-      "Consolidated governance and continuous evolution of the Design System as an internal reference, making it a reality for <strong>Natura, Avon, and The Body Shop</strong>.",
-      "<strong>Designer — Heuristic Analysis (2015 – 2018)</strong>",
-      "Responsible for heuristic analysis of digital channels and design team planning.",
-      "Managed design projects with agencies and the marketing team.",
-      "Supported digital campaign strategies and product launches."
+      "I led Design Ops and Design System governance across multiple brands",
+      "I acted as Product Owner for the Design System squad",
+      "I structured governance models and continuous evolution",
+      "I conducted heuristic analyses and supported digital strategies"
     ]
   },
   {
@@ -176,7 +176,7 @@ export const certificationsEN: Certification[] = [
   { title: "Nonviolent Communication (NVC)" }
 ];
 
-export const summaryEN = `<p>I lead and develop initiatives with a clear purpose: <strong class="font-bold text-gray-900">turning challenges into reality</strong>!</p><p>In the four companies where I have worked — <strong class="font-bold text-gray-900">AB InBev, Unico IDtech, RD (Raia Drogasil), and Natura</strong> — I built cross-tribe teams and Product & Design ecosystems with <strong class="font-bold text-gray-900">Maturity Framework, Ways of Working, Experience Quality Review, and AI hubs</strong>, among other initiatives that turn strategy into building complex systems.</p><p>I lead people in an inspirational way while also driving hands-on execution of initiatives, applying AI to optimize flows and scale team performance.</p>`;
+export const summaryEN = `<p>I lead the construction of complex ecosystems that connect business strategy to execution, driving measurable impact on product maturity, experience quality, and team performance at global companies such as AB InBev, Unico, RD, and Natura.</p><p>I turn complex problems into scalable systems by structuring operations, applying AI, and driving organizational evolution.</p><p>I combine inspirational leadership with direct execution, using AI to optimize flows and amplify results.</p>`;
 
 export const achievementsEN = `<ul class="list-disc pl-4 space-y-1 marker:text-red-300">
 <li>Built Product and Design operations / CoE (Centers of Excellence) teams from scratch at four major companies (AB InBev, Unico IDtech, RD, and Natura)</li>
@@ -191,7 +191,7 @@ export const footerNoteEN = "Final version approved March 2026.";
 export const headerEN = {
   name: "Juliana Veiga",
   title:
-    "Global Head of Design Ops & Product Ops | Design Systems | AI-Driven Operations | Scaling Global Teams",
+    "Leader in Product & Design Operations | AI-Driven Operations | Scaling Organizations",
   email: "julianavmveiga@gmail.com",
   linkedin: "https://www.linkedin.com/in/juveiga/",
   github: "",

@@ -4,6 +4,8 @@ export interface Experience {
   company: string;
   period: string;
   location: string;
+  /** Parágrafo introdutório (não entra na lista de bullets) */
+  intro?: string;
   description: string[];
   logo?: string;
 }
@@ -48,13 +50,16 @@ export const experiencesPT: Experience[] = [
     period: "nov 2023 – atual",
     location: "São Paulo, Brasil",
     logo: experienceLogo('ab-inbev.png'),
+    intro:
+      "Liderei a criação e expansão global do Center of Excellence de Produto & Design para Zé Delivery e TaDa, estabelecendo um modelo operacional escalável que conecta estratégia, execução e qualidade de experiência.",
     description: [
-      "Responsável pela criação do Center of Excellence (CoE) de Produto & Design do Zé Delivery e TaDa, estruturado em 3 pilares — Consumer Centricity, Quality Experience e Maturity & Ops — inspirando a companhia na criação de demais CoE's",
-      "Liderei iniciativas para elevar a maturidade de Produto de 2,70 para 4,11 com Maturity Framework próprio, com foco em Foundation, Pessoas, Plataforma e Práticas",
-      "Implantei junto ao time o Ways of Working de Produto e Design automatizações de IA, tornando o Upstream mensurável e proporcionando visões executivas de qualidade e completude",
-      "Idealizei o Processo de Experience Quality Review garantindo a qualidade de Content, Design System e Illustration pré-produção",
-      "Conduzi junto ao time o Content IA HUB — plataforma com IA para revisão de conteúdo com tom de voz da marca — resultando em 94% de ajustes antes da produção",
-      "Desenvolvi a Plataforma de Pesquisas 100% com IA como repositório centralizado de insights para os times"
+      "Estruturei o CoE do zero, com base nos pilares Consumer Centricity, Quality Experience e Maturity & Ops",
+      "Elevei a maturidade de Produto de 2,7 → 4,11 por meio de um Maturity Framework proprietário",
+      "Desenhei e implementei Ways of Working com uso de IA, tornando o upstream mensurável e com visibilidade executiva",
+      "Criei o framework de Experience Quality Review, resolvendo 94% dos problemas antes da produção",
+      "Liderei a criação de Hub's IA (Content e Visual) garantindo a consistência das interfaces de acordo com a marca",
+      "Desenvolvi uma plataforma de pesquisa com IA, centralizando insights para os times",
+      "Atuei como parceira estratégica da liderança, influenciando decisões em nível global"
     ]
   },
   {
@@ -63,15 +68,14 @@ export const experiencesPT: Experience[] = [
     period: "fev 2022 – nov 2023",
     location: "São Paulo, Brasil",
     logo: experienceLogo('unico.png'),
+    intro:
+      "Estruturei e escalei a área de Design Operations em uma das principais idtechs do Brasil, impulsionando consistência, eficiência e maturidade.",
     description: [
-      "Responsável pela criação e liderança do <strong>Design Ops</strong> da Unico, estruturando frentes cross-design que ampliaram a consistência e eficiência do time. Liderou a implementação das disciplinas de Acessibilidade, Content Design, Service Design, Research Ops e Design System em uma das maiores identech do Brasil.",
-      "Estruturei o time cross-produtos e defini a estratégia de Design Ops alinhada ao impacto no negócio.",
-      "Criei junto ao time um processo de <strong>Experience Quality Review</strong>, garantindo a qualidade da experiência das interfaces antes da produção.",
-      "Liderei a implementação e evolução do <strong>Design System</strong>, criando cultura de adoção e garantindo escalabilidade.",
-      "Criei dashboards para mensuração de impacto de design em produto, proporcionando dados para tomada de decisão operacional.",
-      "Conduzi planejamento estratégico trimestral e anual, conectando visão de design com metas da companhia.",
-      "Implantei junto a especialistas práticas de Acessibilidade, garantindo a adequação à <strong>LGPD</strong> nos produtos digitais.",
-      "<strong>Stack & métodos:</strong> Figma · Data Studio · Notion · Design System · Research Ops · Acessibilidade (WCAG) · LGPD"
+      "Estruturei o time de Design Ops e sua atuação cross tribos",
+      "Implementei disciplinas como Acessibilidade, Content Design, Service Design, Research Ops e Design System",
+      "Introduzi o processo de Experience Quality Review para elevar a qualidade pré-produção",
+      "Liderei a evolução e adoção do Design System",
+      "Desenvolvi dashboards de performance de design para suporte à tomada de decisão"
     ]
   },
   {
@@ -80,13 +84,13 @@ export const experiencesPT: Experience[] = [
     period: "jan 2021 – fev 2022",
     location: "São Paulo, Brasil",
     logo: experienceLogo('rd.png'),
+    intro:
+      "Liderei a criação da área de Design Operations e a estruturação de governança em uma das maiores empresas de varejo do país.",
     description: [
-      "Responsável pela criação e liderança da área de <strong>Design Ops</strong> na RD, estruturando o time e consolidando disciplinas fundamentais para elevar a maturidade de design em uma das maiores redes de varejo farmacêutico do Brasil.",
-      "Estruturei e liderei o time de Design Ops com visão estratégica e impacto transversal.",
-      "Liderei como PM a Squad de <strong>Design System</strong>, estabelecendo estratégia de evolução e cultura de adoção.",
-      "Criei padrões para rituais e documentações, fortalecendo a maturidade da área de design.",
-      "Reduzi inconsistências entre times de Produto e Design com iniciativas cross-funcionais.",
-      "<strong>Stack & métodos:</strong> Figma · Design System · Service Design · Research Ops · Acessibilidade · LGPD"
+      "Estruturei e liderei o time de Design Ops",
+      "Atuei também como Product Manager da squad de Design System",
+      "Padronizei rituais, processos e documentações sendo padrão para as tribos",
+      "Reduzi inconsistências entre Produto e Design por meio de iniciativas cross-funcionais"
     ]
   },
   {
@@ -95,16 +99,13 @@ export const experiencesPT: Experience[] = [
     period: "DEZ 2013 – DEZ 2020",
     location: "São Paulo, Brasil (6 anos)",
     logo: experienceLogo('natura.png'),
+    intro:
+      "Atuei na evolução e escala de Design Operations e Design Systems para Natura, Avon e The Body Shop.",
     description: [
-      "Atuei como <strong>Designer</strong> especialista em Análise Heurística até assumir a liderança do <strong>Design Ops</strong> e a gestão do <strong>Design System</strong> da maior empresa de cosméticos da América Latina.",
-      "<strong>Design Ops Lead & PM | Lead Design System (2018 – 2020)</strong>",
-      "Coordenei as atividades de Design Ops e atuei como PO da Squad de Design System.",
-      "Participei ativamente das definições estratégicas das áreas, conectando design e produto.",
-      "Consolidei a governança e evolução contínua do Design System como referência interna, tornando-o realidade para <strong>Natura, Avon e The Body Shop</strong>.",
-      "<strong>Designer — Análise Heurística (2015 – 2018)</strong>",
-      "Responsável pela análise heurística dos canais digitais e pelo planejamento do time de design.",
-      "Gerenciei projetos de design com agências e time de marketing.",
-      "Apoiei estratégias de campanhas digitais e lançamentos de produtos."
+      "Liderei Design Ops e a governança do Design System em múltiplas marcas",
+      "Atuei como Product Owner da squad de Design System",
+      "Estruturei modelos de governança e evolução contínua",
+      "Conduzi análises heurísticas e apoiei estratégias digitais"
     ]
   },
   {
@@ -114,7 +115,10 @@ export const experiencesPT: Experience[] = [
     location: "São Paulo, Brasil",
     logo: experienceLogo('pipeline.png'),
     description: [
-      "Liderança de projetos digitais, gestão de times e direcionamento criativo."
+      "Liderança de time, agência parceiras e freelas;",
+      "Planejamento e acompanhamento do desenvolvimento de projetos;",
+      "Especificação e definição de soluções técnicas, tais como, CMS, E-commerce, Redes Sociais;",
+      "Direcionamento criativo para criação da identidade visual dos hot-sites e portais;"
     ]
   },
   {
@@ -124,7 +128,11 @@ export const experiencesPT: Experience[] = [
     location: "São Paulo, Brasil",
     logo: experienceLogo('iguana.png'),
     description: [
-      "Arquitetura de informação, design de interfaces e planejamento de projetos digitais para o ecossistema de portais esportivos da empresa."
+      "Criação da arquitetura da informação e prototipacão de novos portais;",
+      "Criação e design das interfaces visuais dos sites de eventos esportivos, sites das revistas e campanhas em mídias sociais;",
+      "Planejamento dos Projetos Digitais para atendimento das áreas de Marketing, Comercial, Assinatura e Eventos, conforme as diretrizes definidas pela diretoria;",
+      "Planejamento e controle das réguas de disparos de emails marketings, principal canal de vendas dos produtos da empresa;",
+      "Definição do fluxo de processos digitais e implantação da cultura de metodologia de projetos;"
     ]
   },
   {
@@ -134,7 +142,13 @@ export const experiencesPT: Experience[] = [
     location: "São Paulo, Brasil",
     logo: experienceLogo('vivo.png'),
     description: [
-      "12 anos de atuação em gestão de projetos de canais digitais, implementação de ferramentas corporativas (CMS, SEO, métricas) e arquitetura de informação para portais corporativos."
+      "Planejamento e condução de projetos web;",
+      "Participação e condução de projetos de implementação de ferramentas corporativas, tais como: CMS,SEO, Sistemas de Métricas;",
+      "Análise das especificações funcionais e elaboração das especificações técnicas.",
+      "Definição da arquitetura da informações para portais corporativos;",
+      "Definição da identidade visual para portais, folhetos, sistemas e campanhas internas;",
+      "Desenvolvimento do front-end de sites internos (Intranet);",
+      "Gestão de demandas para as agências."
     ]
   }
 ];
@@ -175,7 +189,7 @@ export const certificationsPT: Certification[] = [
   { title: "Comunicação Não Violenta (CNV)" }
 ];
 
-export const summaryPT = `<p>Lidero e desenvolvo iniciativas com um propósito claro: <strong class="font-bold text-gray-900">tornar desafios em realidade</strong>!</p><p>Nas 4 empresas em que atuei — <strong class="font-bold text-gray-900">AB InBev, Unico IDtech, RD (Raia Drogasil) e Natura</strong> — estruturei times cross-tribos e ecossistemas de Produto e Design com <strong class="font-bold text-gray-900">Maturity Framework, Ways of Working, Experience Quality Review e Hubs de IA</strong>, dentre outras iniciativas que tangibilizam a estratégia e a construção de sistemas complexos.</p><p>Faço a liderança de pessoas de forma inspiracional e também fazendo a execução direta de iniciativas, aplicando IA para otimizar fluxos e escalar a performance dos times.</p>`;
+export const summaryPT = `<p>Lidero a construção de ecossistemas complexos que conectam estratégia de negócio à execução, gerando impacto mensurável em maturidade de produto, qualidade de experiência e performance de times em empresas globais como AB InBev, Unico, RD e Natura.</p><p>Transformo problemas complexos em sistemas escaláveis estruturando operações, aplicando IA e impulsionando a evolução organizacional.</p><p>Combino liderança inspiracional com execução direta, utilizando IA para otimizar fluxos e potencializar resultados.</p>`;
 
 export const achievementsPT = `<ul class="list-disc pl-4 space-y-1 marker:text-red-300">
 <li>Estruturei do zero times de operação de Produto e Design / CoE (Centers of Excellence) em 4 grandes empresas (AB InBev, Unico IDtech, RD e Natura)</li>
@@ -190,7 +204,7 @@ export const footerNotePT = "Versão final aprovada em março de 2026.";
 export const headerPT = {
   name: "Juliana Veiga",
   title:
-    "Global Head of Design Ops & Product Ops | Design Systems | AI-Driven Operations | Scaling Global Teams",
+    "Leader in Product & Design Operations | AI-Driven Operations | Scaling Organizations",
   email: "julianavmveiga@gmail.com",
   linkedin: "https://www.linkedin.com/in/juveiga/",
   github: "",

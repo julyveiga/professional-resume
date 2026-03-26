@@ -179,3 +179,116 @@
     line-height: 1.5;
   }
 }
+
+@media print {
+  @page {
+    size: A4;
+    margin: 10mm;
+  }
+
+  html {
+    font-size: 12px;
+  }
+
+  body {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    background: #ffffff !important;
+  }
+
+  .resume-modern {
+    padding: 0 !important;
+    background: #ffffff !important;
+  }
+
+  .resume-modern__layout {
+    max-width: none !important;
+    padding: 0 !important;
+    gap: 16px !important;
+    flex-direction: row !important;
+    align-items: flex-start !important;
+  }
+
+  .resume-modern aside,
+  .resume-modern main {
+    box-shadow: none !important;
+    background: #ffffff !important;
+  }
+
+  .resume-modern aside {
+    position: static !important;
+    top: auto !important;
+    width: 30% !important;
+    padding: 0 !important;
+  }
+
+  .resume-modern main {
+    width: 70% !important;
+    padding: 0 !important;
+  }
+
+  .resume-modern section {
+    margin-bottom: 18px !important;
+  }
+
+  .experience-details {
+    padding-top: 6px !important;
+    padding-bottom: 8px !important;
+  }
+
+  .experience-details li {
+    font-size: 0.82rem !important;
+    line-height: 1.35 !important;
+  }
+
+  .resume-modern__print-highlights {
+    break-inside: avoid !important;
+  }
+
+  .resume-modern__print-highlights section {
+    margin-bottom: 0 !important;
+  }
+
+  .resume-modern__print-page3 {
+    page-break-before: always;
+    break-before: page;
+    max-width: none !important;
+    padding: 0 !important;
+  }
+
+  .resume-modern__print-page3 .achievements-carousel__container {
+    flex-wrap: wrap !important;
+  }
+
+  .resume-modern__print-page3 .achievements-carousel__slide {
+    flex: 0 0 calc(50% - 8px) !important;
+    break-inside: avoid !important;
+  }
+
+  .resume-modern .shadow-sm,
+  .resume-modern .shadow-md {
+    box-shadow: none !important;
+  }
+
+  .resume-modern .bg-[#f0f2f5],
+  .resume-modern .bg-[#F8F9FA] {
+    background: #ffffff !important;
+  }
+
+  .achievements-carousel__viewport {
+    overflow: visible !important;
+  }
+
+  .achievements-carousel__container {
+    flex-wrap: wrap !important;
+  }
+
+  .achievements-carousel__slide {
+    flex: 0 0 calc(50% - 8px) !important;
+    break-inside: avoid !important;
+  }
+
+  .resume-modern article {
+    break-inside: avoid !important;
+  }
+}

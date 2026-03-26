@@ -121,8 +121,8 @@ export default function ResumeClassicPage() {
         };
 
   return (
-    <div className="min-h-screen bg-gray-100 pb-8 pt-24 print:bg-white print:py-0 print:pt-0">
-      <div className="fixed right-4 top-20 z-50 flex flex-col items-end gap-2 print:hidden">
+    <div className="min-h-screen bg-gray-100 pb-8 pt-12 print:bg-white print:py-0 print:pt-0">
+      <div className="fixed right-4 top-4 z-50 flex flex-col items-end gap-2 print:hidden">
         <button
           type="button"
           onClick={handleExportPDF}
