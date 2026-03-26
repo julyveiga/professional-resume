@@ -595,25 +595,25 @@ export default function ResumeModernPage() {
       <div className="resume-modern__layout mx-auto flex max-w-6xl flex-col gap-6 px-4 lg:flex-row lg:items-start lg:gap-8">
         {/* Profile header card */}
         <aside className="w-full shrink-0 rounded-2xl bg-[#F8F9FA] p-6 shadow-sm lg:sticky lg:top-8 lg:w-[min(100%,320px)]">
-          <div className="mb-3 flex flex-wrap items-center justify-end gap-3 text-[10px] font-medium text-gray-700 print:hidden">
+          <div className="mb-4 flex flex-wrap items-center justify-center gap-2 print:hidden">
             <button
               type="button"
               onClick={() => {
                 void handleExportPdf();
               }}
               disabled={pdfExporting}
-              className="inline-flex min-h-[30px] touch-manipulation items-center gap-1.5 text-gray-700 transition hover:text-gray-900 disabled:cursor-wait disabled:opacity-60"
+              className="inline-flex min-h-[32px] touch-manipulation items-center gap-1.5 rounded-full bg-blue-50 px-3 py-1 text-[0.65rem] font-medium leading-none text-blue-600 transition hover:bg-blue-100 disabled:cursor-wait disabled:opacity-60"
             >
-              <FileDown className="h-3.5 w-3.5 text-gray-500" />
+              <FileDown className="h-3.5 w-3.5 text-blue-500" />
               <span>{pdfExporting ? L.exportPdfLoading : L.exportPdf}</span>
             </button>
             <button
               type="button"
               onClick={() => setLanguage(language === 'pt' ? 'en' : 'pt')}
               disabled={pdfExporting}
-              className="inline-flex min-h-[30px] touch-manipulation items-center gap-1.5 text-gray-700 transition hover:text-gray-900 disabled:opacity-50"
+              className="inline-flex min-h-[32px] touch-manipulation items-center gap-1.5 rounded-full bg-blue-50 px-3 py-1 text-[0.65rem] font-medium leading-none text-blue-600 transition hover:bg-blue-100 disabled:opacity-50"
             >
-              <Languages className="h-3.5 w-3.5 text-gray-500" />
+              <Languages className="h-3.5 w-3.5 text-blue-500" />
               <span>{language === 'pt' ? L.englishVersion : L.portugueseVersion}</span>
             </button>
           </div>
