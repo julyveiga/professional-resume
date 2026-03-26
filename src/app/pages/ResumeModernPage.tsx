@@ -374,7 +374,6 @@ const labels = {
       'Apaixonada em transformar problemas complexos em soluções com resultados reais.',
     softSkillsTitle: 'Soft Skills',
     hardSkillsTitle: 'Hard Skills',
-    phonePlaceholder: 'Telefone sob consulta',
     projectsTitle: 'Projetos recentes',
     casesTitle: 'Cases',
     casesView: 'Ver case',
@@ -431,7 +430,6 @@ const labels = {
       'Passionate about transforming complex problems into solutions with real results.',
     softSkillsTitle: 'Soft Skills',
     hardSkillsTitle: 'Hard Skills',
-    phonePlaceholder: 'Phone on request',
     projectsTitle: 'Latest projects',
     casesTitle: 'Cases',
     casesView: 'View case',
@@ -650,10 +648,6 @@ export default function ResumeModernPage() {
               </a>
             </li>
             <li className="flex items-start gap-2">
-              <Phone className="mt-0.5 h-4 w-4 shrink-0 text-blue-600" />
-              <span className="text-gray-500">{L.phonePlaceholder}</span>
-            </li>
-            <li className="flex items-start gap-2">
               <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-blue-600" />
               <span>{data.header.location}</span>
             </li>
@@ -691,7 +685,7 @@ export default function ResumeModernPage() {
             </div>
           </div>
 
-          <div className="mt-8">
+          <div className="mt-8 hidden lg:block">
             <h3 className="mb-3 text-xs font-bold uppercase tracking-wide text-gray-700">
               {data.sections.education}
             </h3>
@@ -826,7 +820,7 @@ export default function ResumeModernPage() {
             </div>
           </section>
 
-          <section className="mb-10 print:hidden">
+          <section className="mb-10 hidden print:hidden">
             <div className="mb-3">
               <h2 className="text-lg font-bold text-gray-900">{data.sections.achievements}</h2>
             </div>
@@ -844,44 +838,36 @@ export default function ResumeModernPage() {
             />
           </section>
 
-          <section className="mt-10 print:hidden">
+          <section className="mt-10 lg:hidden print:hidden">
             <div className="mb-4">
-              <h2 className="text-lg font-bold text-gray-900">{L.projectsTitle}</h2>
+              <h2 className="text-lg font-bold text-gray-900">{data.sections.education}</h2>
             </div>
-            <div className="grid gap-4 sm:grid-cols-2">
-              <article className="overflow-hidden rounded-xl border border-gray-100 bg-[#fafafa] shadow-sm">
-                <div className="flex h-28 items-center justify-center bg-gradient-to-br from-slate-200 to-slate-300 text-xs font-medium text-slate-600">
-                  Thumbnail
-                </div>
-                <div className="p-4">
-                  <h3 className="font-bold text-gray-900">{L.projectA.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-gray-600">{L.projectA.desc}</p>
-                  <Link
-                    to="/projetos/coe-global"
-                    className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-blue-600 hover:underline"
-                  >
-                    <Globe className="h-3.5 w-3.5" />
-                    {L.projectLink}
-                  </Link>
-                </div>
-              </article>
-              <article className="overflow-hidden rounded-xl border border-gray-100 bg-[#fafafa] shadow-sm">
-                <div className="flex h-28 items-center justify-center bg-gradient-to-br from-slate-200 to-slate-300 text-xs font-medium text-slate-600">
-                  Thumbnail
-                </div>
-                <div className="p-4">
-                  <h3 className="font-bold text-gray-900">{L.projectB.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-gray-600">{L.projectB.desc}</p>
-                  <a
-                    href="#"
-                    className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-blue-600 hover:underline"
-                    onClick={(e) => e.preventDefault()}
-                  >
-                    <Globe className="h-3.5 w-3.5" />
-                    {L.projectLink}
-                  </a>
-                </div>
-              </article>
+            <div className="space-y-3">
+              {data.education.map((edu, i) => (
+                <article
+                  key={`mobile-${edu.school}-${i}`}
+                  className="rounded-xl border border-gray-100 bg-white p-4 shadow-sm"
+                >
+                  <div className="mb-2 flex items-center gap-2">
+                    <span
+                      className={`flex h-8 w-8 items-center justify-center rounded-lg text-xs font-bold text-white ${
+                        i % 2 === 0 ? 'bg-violet-400' : 'bg-emerald-400'
+                      }`}
+                    >
+                      {i + 1}
+                    </span>
+                    <div>
+                      <p className="text-[0.65rem] font-semibold uppercase text-gray-500">{edu.period}</p>
+                      <p className="text-[0.72rem] font-bold leading-tight text-gray-900">
+                        {language === 'pt' ? 'Formação' : 'Education'}
+                      </p>
+                    </div>
+                  </div>
+                  <p className="text-sm font-semibold text-gray-900">{edu.degree}</p>
+                  <p className="text-xs font-medium text-orange-600">{edu.school}</p>
+                  <p className="text-xs text-gray-500">{edu.location}</p>
+                </article>
+              ))}
             </div>
           </section>
 
