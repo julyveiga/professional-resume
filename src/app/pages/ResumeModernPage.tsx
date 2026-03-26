@@ -252,7 +252,7 @@ const softSkillsTagsShared = [
 const labels = {
   pt: {
     sidebarMotto:
-      'Apaixonada por resolver problemas complexos em soluções com resultados reais.',
+      'Apaixonada em transformar problemas complexos em soluções com resultados reais.',
     softSkillsTitle: 'Soft Skills',
     hardSkillsTitle: 'Hard Skills',
     phonePlaceholder: 'Telefone sob consulta',
@@ -267,6 +267,7 @@ const labels = {
     },
     projectLink: 'Ver projeto',
     exportPdf: 'Exportar PDF',
+    exportPdfLoading: 'A gerar PDF…',
     englishVersion: 'Versão em inglês',
     portugueseVersion: 'Versão em português',
     footerClassic: 'Versão clássica',
@@ -275,7 +276,7 @@ const labels = {
   },
   en: {
     sidebarMotto:
-      'Passionate about turning complex problems into solutions with real results.',
+      'Passionate about transforming complex problems into solutions with real results.',
     softSkillsTitle: 'Soft Skills',
     hardSkillsTitle: 'Hard Skills',
     phonePlaceholder: 'Phone on request',
@@ -290,6 +291,7 @@ const labels = {
     },
     projectLink: 'View project',
     exportPdf: 'Export PDF',
+    exportPdfLoading: 'Generating PDF…',
     englishVersion: 'English version',
     portugueseVersion: 'Portuguese version',
     footerClassic: 'Classic version',
@@ -298,10 +300,17 @@ const labels = {
   },
 } as const;
 
+function prefersMobilePdfDownload(): boolean {
+  if (typeof window === 'undefined') return false;
+  if (window.matchMedia('(max-width: 768px)').matches) return true;
+  return /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+}
+
 export default function ResumeModernPage() {
   const { language, setLanguage } = useAppLanguage();
   const [openExpIndex, setOpenExpIndex] = useState<number | null>(0);
   const [isPrinting, setIsPrinting] = useState(false);
+  const [pdfExporting, setPdfExporting] = useState(false);
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -354,6 +363,48 @@ export default function ResumeModernPage() {
     setOpenExpIndex((prev) => (prev === i ? null : i));
   };
 
+  const handleExportPdf = useCallback(async () => {
+    if (!prefersMobilePdfDownload()) {
+      window.print();
+      return;
+    }
+
+    const root = document.querySelector('.resume-modern');
+    if (!root || !(root instanceof HTMLElement)) {
+      window.print();
+      return;
+    }
+
+    setPdfExporting(true);
+    try {
+      const { jsPDF } = await import('jspdf');
+      const doc = new jsPDF({ orientation: 'p', unit: 'mm', format: 'a4', compress: true });
+      const filename =
+        language === 'pt' ? 'Juliana_Veiga_Resume_PT.pdf' : 'Juliana_Veiga_Resume_EN.pdf';
+
+      await doc.html(root, {
+        callback: (d) => {
+          d.save(filename);
+        },
+        margin: [8, 8, 8, 8],
+        autoPaging: 'text',
+        html2canvas: {
+          scale: 0.38,
+          useCORS: true,
+          logging: false,
+          scrollY: -window.scrollY,
+        },
+        width: 194,
+        windowWidth: 800,
+      });
+    } catch (err) {
+      console.error(err);
+      window.print();
+    } finally {
+      setPdfExporting(false);
+    }
+  }, [language]);
+
   return (
     <div className="resume-modern min-h-screen bg-[#f0f2f5] pb-12 pt-10">
       <div className="resume-modern__layout mx-auto flex max-w-6xl flex-col gap-6 px-4 lg:flex-row lg:items-start lg:gap-8">
@@ -362,15 +413,19 @@ export default function ResumeModernPage() {
           <div className="mb-4 flex overflow-hidden rounded-xl border border-gray-200 bg-gray-100/80 p-1 shadow-sm print:hidden">
             <button
               type="button"
-              onClick={() => window.print()}
-              className="flex-1 rounded-lg px-2 py-2 text-center text-xs font-semibold text-gray-900 transition-colors hover:bg-white sm:text-sm"
+              onClick={() => {
+                void handleExportPdf();
+              }}
+              disabled={pdfExporting}
+              className="flex min-h-[44px] flex-1 touch-manipulation rounded-lg px-2 py-2 text-center text-xs font-semibold text-gray-900 transition-colors hover:bg-white enabled:active:bg-white disabled:cursor-wait disabled:opacity-70 sm:text-sm"
             >
-              {L.exportPdf}
+              {pdfExporting ? L.exportPdfLoading : L.exportPdf}
             </button>
             <button
               type="button"
               onClick={() => setLanguage(language === 'pt' ? 'en' : 'pt')}
-              className="flex-1 rounded-lg px-2 py-2 text-center text-xs font-semibold text-gray-900 transition-colors hover:bg-white sm:text-sm"
+              disabled={pdfExporting}
+              className="flex min-h-[44px] flex-1 touch-manipulation rounded-lg px-2 py-2 text-center text-xs font-semibold text-gray-900 transition-colors hover:bg-white disabled:opacity-50 sm:text-sm"
             >
               {language === 'pt' ? L.englishVersion : L.portugueseVersion}
             </button>
