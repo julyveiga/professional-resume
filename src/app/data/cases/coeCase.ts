@@ -21,7 +21,7 @@ export type CasePractice = {
 
 export const coeCaseData = {
   header: {
-    eyebrow: 'Projeto recente',
+    eyebrow: 'Case',
     title: 'Center of Excellence (CoE)',
     subtitle: 'Transformando operações de Produto & Design em um sistema escalável',
   },

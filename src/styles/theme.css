@@ -209,6 +209,19 @@
     align-items: flex-start !important;
   }
 
+  /* Recruiter print: dedicated single-column output */
+  .resume-modern__layout,
+  .resume-modern__print-page3,
+  .resume-modern footer {
+    display: none !important;
+  }
+
+  .resume-modern__print-single {
+    display: block !important;
+    max-width: none !important;
+    padding: 0 !important;
+  }
+
   .resume-modern aside,
   .resume-modern main {
     box-shadow: none !important;

@@ -5,7 +5,6 @@ import {
   Mail,
   Linkedin,
   MapPin,
-  Phone,
   Globe,
   Calendar,
   ChevronDown,
@@ -18,6 +17,8 @@ import {
   Building2,
   ArrowUpRight,
   TrendingUpIcon,
+  FileDown,
+  Languages,
 } from 'lucide-react';
 import { useAppLanguage } from '../context/AppLanguageContext';
 
@@ -275,9 +276,9 @@ function CasesCarousel({
           {cards.map((card, idx) => (
             <div key={idx} className="flex-[0_0_92%] sm:flex-[0_0_84%] lg:flex-[0_0_78%]">
               <article className="overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm">
-                <div className="p-5 md:p-6">
+                <div className="p-4 md:p-5">
                   <div className="mb-3 flex items-start justify-between gap-3">
-                    <span className="inline-flex rounded-full bg-[#f3e8ff] px-2.5 py-1 text-[0.65rem] font-semibold uppercase tracking-wide text-[#6b21a8]">
+                    <span className="inline-flex rounded-full bg-[#f3e8ff] px-2.5 py-1 text-[0.6rem] font-semibold uppercase tracking-wide text-[#6b21a8]">
                       {card.badge}
                     </span>
                     {card.to ? (
@@ -295,26 +296,28 @@ function CasesCarousel({
                     )}
                   </div>
 
-                  <h3 className="text-2xl font-extrabold leading-tight text-gray-900">{card.title}</h3>
-                  <p className="mt-4 text-base leading-relaxed text-gray-600">{card.description}</p>
+                  <h3 className="text-[1.22rem] font-extrabold leading-tight text-gray-900">{card.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-gray-600">{card.description}</p>
 
-                  <div className="mt-4 flex flex-wrap gap-2">
+                  <div className="mt-3 flex flex-wrap gap-2">
                     {card.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-600"
+                        className="rounded-full bg-gray-100 px-3 py-1 text-[0.78rem] font-medium text-gray-600"
                       >
                         {tag}
                       </span>
                     ))}
                   </div>
 
-                  <div className="mt-5 rounded-xl border border-emerald-100 bg-emerald-50 p-4">
-                    <p className="flex items-center gap-2 text-[0.7rem] font-bold uppercase tracking-wide text-emerald-700">
+                  <div className="mt-4 rounded-xl border border-emerald-100 bg-emerald-50 p-3">
+                    <p className="flex items-center gap-2 text-[0.62rem] font-bold uppercase tracking-wide text-emerald-700">
                       <TrendingUpIcon className="h-3.5 w-3.5" />
                       {card.impactLabel}
                     </p>
-                    <p className="mt-1 text-xl font-extrabold text-emerald-800">{card.impactValue}</p>
+                    <p className="mt-1 text-[1.15rem] font-extrabold leading-tight text-emerald-800">
+                      {card.impactValue}
+                    </p>
                   </div>
                 </div>
               </article>
@@ -381,10 +384,9 @@ const labels = {
     casesCards: [
       {
         badge: 'Case Study',
-        title: 'Estruturação Center of Excellence (CoE)',
-        description:
-          'O CoE se tornou referência interna e modelo replicável, influenciando a criação de outras estruturas na companhia.',
-        tags: ['CoE', 'Governança', 'Maturity Framework', 'Quality Experience'],
+        title: 'CoE | Center of Excellence',
+        description: 'Transformando operações de Produto & Design em um sistema escalável',
+        tags: ['Escala', 'Eficiência', 'Qualidade', 'Maturity'],
         impactLabel: 'Impacto principal',
         impactValue: 'Maturidade de Produto: 2.7 → 4.11',
         to: '/projetos/coe-global',
@@ -417,7 +419,7 @@ const labels = {
       desc: 'Marcação de exemplo — hub de IA, rituais e governança alinhados a OKRs.',
     },
     projectLink: 'Ver projeto',
-    exportPdf: 'Exportar PDF',
+    exportPdf: 'Baixar PDF',
     exportPdfLoading: 'A gerar PDF…',
     englishVersion: 'Versão em inglês',
     portugueseVersion: 'Versão em português',
@@ -591,53 +593,63 @@ export default function ResumeModernPage() {
   return (
     <div className="resume-modern min-h-screen bg-[#f0f2f5] pb-12 pt-10">
       <div className="resume-modern__layout mx-auto flex max-w-6xl flex-col gap-6 px-4 lg:flex-row lg:items-start lg:gap-8">
-        {/* Sidebar */}
+        {/* Profile header card */}
         <aside className="w-full shrink-0 rounded-2xl bg-[#F8F9FA] p-6 shadow-sm lg:sticky lg:top-8 lg:w-[min(100%,320px)]">
-          <div className="mb-4 flex overflow-hidden rounded-xl border border-gray-200 bg-gray-100/80 p-1 shadow-sm print:hidden">
+          <div className="mb-3 flex flex-wrap items-center justify-end gap-3 text-[10px] font-medium text-gray-700 print:hidden">
             <button
               type="button"
               onClick={() => {
                 void handleExportPdf();
               }}
               disabled={pdfExporting}
-              className="flex min-h-[44px] flex-1 touch-manipulation rounded-lg px-2 py-2 text-center text-xs font-semibold text-gray-900 transition-colors hover:bg-white enabled:active:bg-white disabled:cursor-wait disabled:opacity-70 sm:text-sm"
+              className="inline-flex min-h-[30px] touch-manipulation items-center gap-1.5 text-gray-700 transition hover:text-gray-900 disabled:cursor-wait disabled:opacity-60"
             >
-              {pdfExporting ? L.exportPdfLoading : L.exportPdf}
+              <FileDown className="h-3.5 w-3.5 text-gray-500" />
+              <span>{pdfExporting ? L.exportPdfLoading : L.exportPdf}</span>
             </button>
             <button
               type="button"
               onClick={() => setLanguage(language === 'pt' ? 'en' : 'pt')}
               disabled={pdfExporting}
-              className="flex min-h-[44px] flex-1 touch-manipulation rounded-lg px-2 py-2 text-center text-xs font-semibold text-gray-900 transition-colors hover:bg-white disabled:opacity-50 sm:text-sm"
+              className="inline-flex min-h-[30px] touch-manipulation items-center gap-1.5 text-gray-700 transition hover:text-gray-900 disabled:opacity-50"
             >
-              {language === 'pt' ? L.englishVersion : L.portugueseVersion}
+              <Languages className="h-3.5 w-3.5 text-gray-500" />
+              <span>{language === 'pt' ? L.englishVersion : L.portugueseVersion}</span>
             </button>
           </div>
-          <div className="mx-auto mb-4 h-28 w-28 overflow-hidden rounded-full bg-gray-200 shadow-md ring-2 ring-white">
-            <img
-              src={`${import.meta.env.BASE_URL}juliana-veiga-avatar.png`}
-              alt={data.header.name}
-              className="h-full w-full object-cover object-[center_22%]"
-            />
+
+          <div className="flex items-start gap-3">
+            <div className="h-24 w-24 shrink-0 overflow-hidden rounded-full bg-gray-200 shadow-md ring-2 ring-white">
+              <img
+                src={`${import.meta.env.BASE_URL}juliana-veiga-avatar.png`}
+                alt={data.header.name}
+                className="h-full w-full object-cover object-[center_22%]"
+              />
+            </div>
+
+            <div className="min-w-0 flex-1">
+              <h1 className="text-[20px] font-bold leading-tight text-gray-900">
+                {data.header.name}
+              </h1>
+              <p className="mt-2 text-[12px] font-semibold leading-[1.35] text-gray-900">
+                {data.header.title}
+              </p>
+            </div>
           </div>
-          <h1 className="text-center text-xl font-bold text-gray-900">{data.header.name}</h1>
-          <p className="mt-2 text-center text-xs font-medium leading-snug text-[#5b4d7a]">
-            {data.header.title}
+
+          <p className='mt-3 text-[12px] italic leading-[1.45] text-gray-700'>
+            “{L.sidebarMotto}”
           </p>
 
-          <div className="mt-4 rounded-xl border border-white/80 bg-white p-3 text-sm italic text-gray-600 shadow-sm">
-            “{L.sidebarMotto}”
-          </div>
-
-          <ul className="mt-5 space-y-2.5 text-xs font-medium text-gray-800">
-            <li className="flex items-start gap-2">
-              <Mail className="mt-0.5 h-4 w-4 shrink-0 text-blue-600" />
+          <ul className="mt-4 flex flex-wrap items-center justify-center gap-x-7 gap-y-2.5 text-[0.65rem] font-semibold text-gray-700 sm:justify-start">
+            <li className="flex items-center gap-2">
+              <Mail className="h-3.5 w-3.5 shrink-0 text-blue-500" />
               <a href={`mailto:${data.header.email}`} className="hover:underline">
                 {data.header.email}
               </a>
             </li>
-            <li className="flex items-start gap-2">
-              <Linkedin className="mt-0.5 h-4 w-4 shrink-0 text-blue-600" />
+            <li className="flex items-center gap-2">
+              <Linkedin className="h-3.5 w-3.5 shrink-0 text-blue-500" />
               <a
                 href={data.header.linkedin}
                 target="_blank"
@@ -647,8 +659,8 @@ export default function ResumeModernPage() {
                 {linkedinSlug(data.header.linkedin)}
               </a>
             </li>
-            <li className="flex items-start gap-2">
-              <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-blue-600" />
+            <li className="flex items-center gap-2">
+              <MapPin className="h-3.5 w-3.5 shrink-0 text-blue-500" />
               <span>{data.header.location}</span>
             </li>
           </ul>
@@ -754,7 +766,7 @@ export default function ResumeModernPage() {
                         className="flex w-full cursor-pointer items-start gap-3 p-4 text-left transition-colors hover:bg-gray-50/80 print:cursor-default print:hover:bg-transparent"
                         aria-expanded={isOpen}
                       >
-                        <div className="relative mt-0.5 h-16 w-16 shrink-0 overflow-hidden rounded-2xl bg-neutral-200/40 shadow-sm ring-1 ring-gray-200/90">
+                        <div className="relative mt-0.5 h-12 w-12 shrink-0 overflow-hidden rounded-xl bg-neutral-200/40 shadow-sm ring-1 ring-gray-200/90">
                           {exp.logo ? (
                             <img
                               src={exp.logo}
@@ -763,7 +775,7 @@ export default function ResumeModernPage() {
                             />
                           ) : (
                             <div className="flex h-full w-full items-center justify-center bg-gray-100">
-                              <Briefcase className="h-7 w-7 text-gray-400" />
+                              <Briefcase className="h-6 w-6 text-gray-400" />
                             </div>
                           )}
                         </div>
@@ -778,7 +790,7 @@ export default function ResumeModernPage() {
                               {exp.location}
                             </span>
                           </div>
-                          <h3 className="text-base font-bold text-gray-900">{exp.role}</h3>
+                          <h3 className="text-[14px] font-bold text-gray-900">{exp.role}</h3>
                           <p className="text-sm font-semibold text-orange-600">{exp.company}</p>
                         </div>
                         <span className="shrink-0 text-gray-400 print:hidden">
@@ -895,42 +907,115 @@ export default function ResumeModernPage() {
         </main>
       </div>
 
-      {/* Print-only page 3 (full width) */}
-      <div className="resume-modern__print-page3 mx-auto hidden max-w-6xl px-4 print:block">
-        <section className="mb-10">
-          <div className="mb-3">
-            <h2 className="text-lg font-bold text-gray-900">{data.sections.achievements}</h2>
+      {/* Print-only single-column recruiter version */}
+      <div className="resume-modern__print-single mx-auto hidden max-w-4xl px-4 print:block">
+        <header className="mb-6 border-b border-gray-200 pb-4">
+          <h1 className="text-center text-2xl font-bold text-gray-900">{data.header.name}</h1>
+          <p className="mt-1 text-center text-sm font-semibold text-gray-800">{data.header.title}</p>
+          <p className="mt-2 text-center text-sm italic text-gray-700">“{L.sidebarMotto}”</p>
+          <ul className="mt-3 flex flex-wrap items-center justify-center gap-x-5 gap-y-1 text-xs text-gray-700">
+            <li className="inline-flex items-center gap-1.5">
+              <Mail className="h-3.5 w-3.5 text-gray-500" />
+              <span>{data.header.email}</span>
+            </li>
+            <li className="inline-flex items-center gap-1.5">
+              <Linkedin className="h-3.5 w-3.5 text-gray-500" />
+              <span>{linkedinSlug(data.header.linkedin)}</span>
+            </li>
+            <li className="inline-flex items-center gap-1.5">
+              <MapPin className="h-3.5 w-3.5 text-gray-500" />
+              <span>{data.header.location}</span>
+            </li>
+          </ul>
+          <div className="mt-5">
+            <p className="text-[0.65rem] font-bold uppercase tracking-wide text-gray-600">
+              {L.softSkillsTitle}
+            </p>
+            <p className="mt-1 text-[0.75rem] text-gray-700">{L.softSkillsTags.join(' • ')}</p>
           </div>
-          <AchievementsCarousel achievementsHtml={data.achievements} />
+          <div className="mt-4">
+            <p className="text-[0.65rem] font-bold uppercase tracking-wide text-gray-600">
+              {L.hardSkillsTitle}
+            </p>
+            <p className="mt-1 text-[0.75rem] text-gray-700">{L.hardSkillsTags.join(' • ')}</p>
+          </div>
+        </header>
+
+        <section className="mb-6">
+          <h2 className="border-b border-gray-300 pb-1 text-base font-bold text-gray-900">
+            {data.sections.summary}
+          </h2>
+          <div
+            className="mt-2 max-w-none text-[0.85rem] leading-relaxed text-gray-800 [&_p]:mb-2 [&_strong]:font-bold"
+            dangerouslySetInnerHTML={{ __html: data.summary }}
+          />
+        </section>
+
+        <section className="mb-6">
+          <h2 className="border-b border-gray-300 pb-1 text-base font-bold text-gray-900">
+            {data.sections.experience}
+          </h2>
+          <div className="mt-3 space-y-4">
+            {data.experiences.map((exp, index) => (
+              <article key={`print-exp-${exp.company}-${index}`} className="break-inside-avoid">
+                <div className="flex items-center gap-2 text-[0.68rem] font-semibold uppercase tracking-wide text-gray-500">
+                  <span>{exp.period}</span>
+                  <span>•</span>
+                  <span>{exp.location}</span>
+                </div>
+                <h3 className="mt-1 text-[0.95rem] font-bold text-gray-900">{exp.role}</h3>
+                <p className="text-[0.85rem] font-semibold text-orange-600">{exp.company}</p>
+                {exp.intro ? <p className="mt-1 text-[0.82rem] text-gray-700">{exp.intro}</p> : null}
+                <ul className="mt-1 list-disc space-y-0.5 pl-4 text-[0.8rem] leading-relaxed text-gray-700">
+                  {exp.description.map((line, i) => (
+                    <li key={i} dangerouslySetInnerHTML={{ __html: line }} />
+                  ))}
+                </ul>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="mb-6">
+          <h2 className="border-b border-gray-300 pb-1 text-base font-bold text-gray-900">
+            {data.sections.education}
+          </h2>
+          <div className="mt-2 space-y-2">
+            {data.education.map((edu, i) => (
+              <article key={`print-edu-${edu.school}-${i}`}>
+                <p className="text-[0.68rem] font-semibold uppercase tracking-wide text-gray-500">{edu.period}</p>
+                <p className="text-[0.85rem] font-semibold text-gray-900">{edu.degree}</p>
+                <p className="text-[0.8rem] text-orange-600">{edu.school}</p>
+                <p className="text-[0.75rem] text-gray-600">{edu.location}</p>
+              </article>
+            ))}
+          </div>
         </section>
 
         <section>
-          <div className="mb-4">
-            <h2 className="text-lg font-bold text-gray-900">{data.sections.certifications}</h2>
+          <h2 className="border-b border-gray-300 pb-1 text-base font-bold text-gray-900">
+            {data.sections.certifications}
+          </h2>
+          <div className="mt-2 grid grid-cols-2 gap-3">
+            {data.skillHighlights
+              .flatMap((group) => group.cards)
+              .map((card, i) => {
+                const src = skillHighlightLogoUrl(card.logo);
+                return (
+                  <article key={`print-cert-${card.source}-${card.title}-${i}`} className="flex items-start gap-2">
+                    {src ? (
+                      <img src={src} alt={card.source} className="mt-0.5 h-8 w-8 rounded object-contain" />
+                    ) : (
+                      <div className="mt-0.5 h-8 w-8 rounded bg-gray-100" />
+                    )}
+                    <div>
+                      <p className="text-[0.72rem] font-semibold text-gray-900">{card.title}</p>
+                      <p className="text-[0.68rem] text-gray-600">{card.source}</p>
+                    </div>
+                  </article>
+                );
+              })}
           </div>
-          {(() => {
-            const allCards = data.skillHighlights.flatMap((g) => g.cards);
-            const idxEI = allCards.findIndex((c) =>
-              /inteligência emocional|emotional intelligence/i.test(`${c.title} ${c.source}`)
-            );
-            const idxBusiness = allCards.findIndex((c) =>
-              /business design/i.test(`${c.title} ${c.source}`)
-            );
-
-            if (idxEI >= 0 && idxBusiness >= 0 && idxBusiness !== idxEI + 1) {
-              const business = allCards[idxBusiness];
-              allCards.splice(idxBusiness, 1);
-              allCards.splice(idxEI + 1, 0, business);
-            }
-
-            return (
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 print:grid-cols-2">
-                {allCards.map((card, i) => (
-                  <SkillHighlightCardView key={`${card.source}-${card.title}-${i}`} card={card} />
-                ))}
-              </div>
-            );
-          })()}
         </section>
       </div>
 
