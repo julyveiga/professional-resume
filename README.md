@@ -104,12 +104,12 @@ This repository can be used as:
 English version preview:
 
 <p align="center">
-  <img src="./docs/preview_en.png" width="650">
+  <img src="./docs/x.png" width="650">
 </p>
 
 You can also open the full PDF directly:
 
-https://ninamcunha.github.io/professional-resume/pdfs/Nina_Menezes_Cunha_Resume_EN.pdf
+xxx
 
 ---
 
@@ -249,13 +249,12 @@ Use the interface controls to switch between English and Portuguese content.
 ### Open the live version
 Use the GitHub Pages link:
 
-https://ninamcunha.github.io/professional-resume/
+xxx
 
 ### Download the PDFs
 Use the direct public links:
 
-- English: https://ninamcunha.github.io/professional-resume/pdfs/Nina_Menezes_Cunha_Resume_EN.pdf
-- Portuguese: https://ninamcunha.github.io/professional-resume/pdfs/Nina_Menezes_Cunha_Resume_PT.pdf
+xxxxx
 
 ### Preview the production build locally
 
@@ -359,11 +358,7 @@ Because files inside `public/` are exposed directly by Vite and GitHub Pages. Th
 
 ### Resulting public paths
 
-```text
-/pdfs/Nina_Menezes_Cunha_Resume_EN.pdf
-/pdfs/Nina_Menezes_Cunha_Resume_PT.pdf
-```
-
+xxxxx
 ---
 
 ## Deployment
@@ -578,8 +573,8 @@ This project can be kept under the MIT License for public reuse.
 
 **Nina Menezes Cunha**
 
-- LinkedIn: [nina-menezes-cunha](https://linkedin.com/in/nina-menezes-cunha)
-- GitHub: [@ninamcunha](https://github.com/ninamcunha)
+- LinkedIn: 
+- GitHub: 
 
 ---
 
