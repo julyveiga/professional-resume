@@ -189,7 +189,7 @@ export const certificationsPT: Certification[] = [
   { title: "Comunicação Não Violenta (CNV)" }
 ];
 
-export const summaryPT = `<p>Lidero a construção de ecossistemas complexos que conectam estratégia de negócio à execução, gerando impacto mensurável em maturidade de produto, qualidade de experiência e performance de times em empresas globais como AB InBev, Unico, RD e Natura.</p><p>Transformo problemas complexos em sistemas escaláveis estruturando operações, aplicando IA e impulsionando a evolução organizacional.</p><p>Combino liderança inspiracional com execução direta, utilizando IA para otimizar fluxos e potencializar resultados.</p>`;
+export const summaryPT = `<p>Construo e escalo organizações conectando estratégia à execução, com impacto em produto, experiência e performance. Transformo complexidade em sistemas escaláveis por meio de operações e IA.</p><p>Combino liderança inspiracional com execução direta para desenvolver times de alta performance e escalar resultados.</p><p>Ao longo da minha trajetória, atuei em empresas globais como AB InBev, Unico, RD e Natura.</p>`;
 
 export const achievementsPT = `<ul class="list-disc pl-4 space-y-1 marker:text-red-300">
 <li>Estruturei do zero times de operação de Produto e Design / CoE (Centers of Excellence) em 4 grandes empresas (AB InBev, Unico IDtech, RD e Natura)</li>
