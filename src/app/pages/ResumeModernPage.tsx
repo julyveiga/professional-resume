@@ -660,14 +660,13 @@ export default function ResumeModernPage() {
                 <div className="p-4">
                   <h3 className="font-bold text-gray-900">{L.projectA.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-gray-600">{L.projectA.desc}</p>
-                  <a
-                    href="#"
+                  <Link
+                    to="/projetos/coe-global"
                     className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-blue-600 hover:underline"
-                    onClick={(e) => e.preventDefault()}
                   >
                     <Globe className="h-3.5 w-3.5" />
                     {L.projectLink}
-                  </a>
+                  </Link>
                 </div>
               </article>
               <article className="overflow-hidden rounded-xl border border-gray-100 bg-[#fafafa] shadow-sm">
