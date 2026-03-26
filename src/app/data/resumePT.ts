@@ -219,7 +219,7 @@ export const sectionsPT = {
   skills: "Competências",
   education: "Formação acadêmica",
   publications: "Publicações",
-  certifications: "Certificações"
+  certifications: "Principais Certificações"
 };
 
 export type SkillHighlightCard = {
@@ -242,7 +242,7 @@ export const skillHighlightsPT: SkillHighlightGroup[] = [
     cards: [
       {
         source: "SECTION IA",
-        title: "Certificações IA's",
+        title: "Certificações IA",
         logo: "logos/certifications/section-ia.png",
       },
       {

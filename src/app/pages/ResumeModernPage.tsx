@@ -378,12 +378,12 @@ const labels = {
     softSkillsTitle: 'Soft Skills',
     hardSkillsTitle: 'Hard Skills',
     projectsTitle: 'Projetos recentes',
-    casesTitle: 'Cases',
+    casesTitle: 'Cases / Projetos Liderados',
     casesView: 'Ver case',
     casesComingSoon: 'Em breve',
     casesCards: [
       {
-        badge: 'Case Study',
+        badge: 'Case',
         title: 'CoE | Center of Excellence',
         description: 'Transformando operações de Produto & Design em um sistema escalável',
         tags: ['Escala', 'Eficiência', 'Qualidade', 'Maturity'],
@@ -392,7 +392,7 @@ const labels = {
         to: '/projetos/coe-global',
       },
       {
-        badge: 'Case Study',
+        badge: 'Case',
         title: 'Evolução de Design Operations',
         description:
           'Exemplo de card para próximos cases com foco em escala de design, rituais e eficiência operacional.',
@@ -401,7 +401,7 @@ const labels = {
         impactValue: 'Redução de retrabalho: +35%',
       },
       {
-        badge: 'Case Study',
+        badge: 'Case',
         title: 'Framework de Qualidade em Produto',
         description:
           'Exemplo de card para próximos cases orientados por qualidade de experiência e padronização de decisões.',
@@ -433,12 +433,12 @@ const labels = {
     softSkillsTitle: 'Soft Skills',
     hardSkillsTitle: 'Hard Skills',
     projectsTitle: 'Latest projects',
-    casesTitle: 'Cases',
+    casesTitle: 'Cases / Led Projects',
     casesView: 'View case',
     casesComingSoon: 'Coming soon',
     casesCards: [
       {
-        badge: 'Case Study',
+        badge: 'Case',
         title: 'Center of Excellence (CoE) Structuring',
         description:
           'The CoE became an internal benchmark and a replicable model, influencing other structures across the company.',
@@ -448,7 +448,7 @@ const labels = {
         to: '/projetos/coe-global',
       },
       {
-        badge: 'Case Study',
+        badge: 'Case',
         title: 'Design Operations Evolution',
         description:
           'Example card for upcoming cases focused on design scale, rituals, and operational efficiency.',
@@ -457,7 +457,7 @@ const labels = {
         impactValue: 'Rework reduction: +35%',
       },
       {
-        badge: 'Case Study',
+        badge: 'Case',
         title: 'Product Quality Framework',
         description:
           'Example card for upcoming cases driven by experience quality and decision consistency.',
@@ -1019,14 +1019,6 @@ export default function ResumeModernPage() {
         </section>
       </div>
 
-      <footer className="mx-auto max-w-6xl px-4 pb-8 pt-6 text-center print:hidden">
-        <Link
-          to="/classica"
-          className="text-sm font-medium text-gray-600 underline decoration-gray-300 underline-offset-2 transition-colors hover:text-gray-900"
-        >
-          {L.footerClassic}
-        </Link>
-      </footer>
     </div>
   );
 }

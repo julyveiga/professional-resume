@@ -191,7 +191,7 @@ export const footerNoteEN = "Final version approved March 2026.";
 export const headerEN = {
   name: "Juliana Veiga",
   title:
-    "Leader in Product & Design Operations | AI-Driven Operations | Scaling Organizations",
+    "Leader in Product & Design | AI-Driven | Scaling Organizations | Operations | Manager | Specialist",
   email: "julianavmveiga@gmail.com",
   linkedin: "https://www.linkedin.com/in/juveiga/",
   github: "",
@@ -206,7 +206,7 @@ export const sectionsEN = {
   skills: "SKILLS",
   education: "EDUCATION",
   publications: "PUBLICATIONS",
-  certifications: "CERTIFICATIONS"
+  certifications: "KEY CERTIFICATIONS"
 };
 
 export const skillHighlightsEN: SkillHighlightGroup[] = [
